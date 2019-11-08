@@ -1,6 +1,13 @@
 var db = require("../models");
 
 module.exports = function(app) {
+
+  app.get("/api/meteorshowers", function(req, res) {
+    db.meteorshowers.findAll({}).then(function(Result) {
+      res.json(Result);
+    });
+  });
+
   // Get all examples
   app.get("/api/examples", function(req, res) {
     db.Example.findAll({}).then(function(dbExamples) {
