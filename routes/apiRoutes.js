@@ -37,12 +37,7 @@ module.exports = function(app) {
     const timestamp = Date.now();
     data.timestamp = timestamp;
     database.insert(data);
-    response.json({
-      status: 'success',
-      timestamp: timestamp,
-      latitude: data.lat,
-      longitude: data.lon
-    });
+    response.json(data);
   });
 
   app.get('/weather/:latlon', async (request, response) => {
@@ -56,8 +51,11 @@ module.exports = function(app) {
     const weather_url = `https://api.darksky.net/forecast/ef516e4b2e594d932c47badeee23c8bb/${lat},${lon}/?units=us`;
     const weather_response = await fetch(weather_url);
     const weather_data = await weather_response.json();
+    const forecast_response = await fetch(weather_url);
+    const forecast_data = await forecast_response.json();
     const data = {
       weather: weather_data,
+      forecast: forecast_data
     };
     response.json(data);
   });
