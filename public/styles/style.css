@@ -5,9 +5,6 @@
  *
  * Made By MaterializeCSS.com
  */
-h1{
-  font-family: 'Monoton', cursive;
-}
 
 nav ul a,
 nav .brand-logo {
@@ -30,7 +27,6 @@ p {
 }
   .parallax-container .section {
     width: 100%;
-    min-height: 1000px;
   }
 
 @media only screen and (max-width : 992px) {
@@ -61,4 +57,4 @@ footer.page-footer {
 }
 
 .carousel .carousel-item {
-  width:500px !important;}
+  width:300px !important;}
