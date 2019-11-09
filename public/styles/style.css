@@ -5,6 +5,9 @@
  *
  * Made By MaterializeCSS.com
  */
+h1{
+  font-family: 'Monoton', cursive;
+}
 
 nav ul a,
 nav .brand-logo {
