@@ -1,8 +1,12 @@
 var db = require("../models");
+var meteors = require("../public/js/meteor-data.js")
+
+console.log(meteors);
 
 module.exports = function(app) {
   // Load index page
   app.get("/", function(req, res) {
+    db.meteorshowers.bulkCreate(meteors);
     db.Example.findAll({}).then(function(dbExamples) {
       res.render("index", {
         msg: "Welcome!",
