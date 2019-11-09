@@ -24,6 +24,15 @@
             <button class="btn btn-danger float-right delete">ｘ</button>
           </li>
           {{/each}}
+
+          <p>
+            The weather here at <span id="latitude"></span>&deg;,
+            <span id="longitude"></span>&deg; is <span id="summary"></span> with
+            a temperature of <span id="temp"></span>&deg;.
+          </p>
+
+            <button id="geolocate">Check here</button>
+            
         </ul>
       </div>
     </div>
