@@ -4,6 +4,20 @@ var $exampleDescription = $("#example-description");
 var $submitBtn = $("#submit");
 var $exampleList = $("#example-list");
 
+import { Calendar } from '@fullcalendar/core';
+import dayGridPlugin from '@fullcalendar/daygrid';
+
+document.addEventListener('DOMContentLoaded', function() {
+  var calendarEl = document.getElementById('calendar');
+
+  var calendar = new Calendar(calendarEl, {
+    
+    plugins: [ dayGridPlugin ]
+  });
+
+  calendar.render();
+});
+
 // The API object contains methods for each kind of request we'll make
 var API = {
   saveExample: function(example) {

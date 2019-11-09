@@ -2,6 +2,7 @@
   <div class="container">
     <div class="row">
       <div class="col-8 offset-2">
+        <div id="map-canvas"></div>
         <h1>{{msg}}</h1>
         <h2>This is our Home Page!</h2>
         <form class="clearfix mb-4" action="POST">
@@ -23,6 +24,15 @@
             <button class="btn btn-danger float-right delete">ｘ</button>
           </li>
           {{/each}}
+
+          <p>
+            The weather here at <span id="latitude"></span>&deg;,
+            <span id="longitude"></span>&deg; is <span id="summary"></span> with
+            a temperature of <span id="temp"></span>&deg;.
+          </p>
+
+            <button id="geolocate">Check here</button>
+            
         </ul>
       </div>
     </div>

@@ -1,7 +1,9 @@
 require("dotenv").config();
 var express = require("express");
+// const Datastore = require('nedb');
 var bodyParser = require("body-parser");
 var exphbs = require("express-handlebars");
+// const fetch = require('node-fetch');
 
 var db = require("./models");
 
@@ -12,6 +14,10 @@ var PORT = process.env.PORT || 3000;
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 app.use(express.static("public"));
+app.use(express.json({ limit: '1mb' }));
+
+// const database = new Datastore('coords.db');
+// database.loadDatabase();
 
 // Handlebars
 app.engine(
