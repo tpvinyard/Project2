@@ -23,15 +23,38 @@
           <h5 class="header col s12 light flow-text">Discover your next trip by chasing the stars</h5>
         </div>
         <div class="row center">
-          <a href="http://materializecss.com/getting-started.html" id="download-button" class="btn-large waves-effect waves-light cyan lighten-1 flow-text">Full Calendar</a>
+          <a href="http://materializecss.com/getting-started.html" id="download-button" class="btn-large waves-effect waves-light blue lighten-1 flow-text">Full Calendar</a>
         </div>
         <br><br>
 
         <div class="carousel">
-            <a class="carousel-item" href="#eclipse"><img src="../images/eclipse.jpg"></a>
-            <a class="carousel-item" href="#sunset"><img src="../images/sunset.jpg"></a>
-            <a class="carousel-item" href="#moon"><img src="../images/FullMoon.jpg"></a>
-            <a class="carousel-item" href="#meteor"><img src="../images/meteorshower.jpg"></a>
+          <a class="carousel-item" href= "https://www.wolframalpha.com/examples/science-and-technology/space-and-astronomy/astronomical-events/eclipses/">
+            <div class="carousel-content flow-text">
+              <h2>Eclipses</h2>
+            </div>
+            <img src="../images/eclipse.jpg" >
+          </a>
+            
+          <a class="carousel-item white-text text-lighten-2" href = "https://www.wolframalpha.com/examples/science-and-technology/space-and-astronomy/astronomical-events/sunrise-and-sunset/">
+              <div class="carousel-content flow-text">
+                <h2>Sunrise/Sunset</h2>
+              </div>
+            <img src="../images/sunset.jpg">
+          </a>
+            
+          <a class="carousel-item white-text text-lighten-2" href= 'https://www.wolframalpha.com/examples/science-and-technology/space-and-astronomy/astronomical-events/lunar-phases/'>
+            <div class="carousel-content flow-text">
+              <h2>Lunar Phases</h2>
+            </div>
+            <img src="../images/FullMoon.jpg">
+          </a>
+            
+          <a class="carousel-item white-text text-lighten-2" href= "https://www.wolframalpha.com/examples/science-and-technology/space-and-astronomy/astronomical-events/meteor-showers/">
+            <div class="carousel-content flow-text">
+              <h2>Meteor Showers</h2>
+            </div>
+            <img src="../images/meteorshower.jpg">
+          </a>
         </div>
         
       </div>
@@ -154,6 +177,20 @@
   <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
   <script src="../js/materialize.js"></script>
   <script src="../js/init.js"></script>
+  <script>
+  $(document).ready();
+
+  $('.carousel').carousel({
+    padding: 200    
+  });
+  
+  autoplay();
+  
+  function autoplay() {
+    $('.carousel').carousel('next');
+    setTimeout(autoplay, 5000);
+}
+  </script>
 
   </body>
 </html>
