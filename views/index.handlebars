@@ -27,11 +27,25 @@
           {{/each}}
 
           <p>
-            The weather here at <span id="latitude"></span>&deg;,
-            <span id="longitude"></span>&deg; is <span id="summary"></span> with
-            a temperature of <span id="temp"></span>&deg;.
+            Current location <span id="latitude"></span>&deg;,
+            <span id="longitude"></span>&deg;.
           </p>
-
+          <p>
+            It is <span id="summary"></span> with
+            a temperature of <span id="temp"></span>&deg; F.
+          </p>
+          <p>
+            It will be <span id="forecast"></span>.
+          </p>
+          <p>
+            The Sun will rise at <span id="sunrise"></span> minutes.
+          </p>
+          <p>
+            The Sun will set at <span id="sunset"></span> minutes.
+          </p>
+          <p>
+            The current Moon phase is <span id="moonphase"></span>.
+          </p>
             <button id="geolocate">Check here</button>
             
         </ul>
