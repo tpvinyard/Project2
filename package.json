@@ -11,6 +11,7 @@
   },
   "license": "ISC",
   "dependencies": {
+    "@auth0/auth0-spa-js": "^1.5.0",
     "@fullcalendar/core": "^4.3.1",
     "@fullcalendar/daygrid": "^4.3.0",
     "body-parser": "^1.18.3",
