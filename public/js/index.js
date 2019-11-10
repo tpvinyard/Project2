@@ -4,19 +4,7 @@ var $exampleDescription = $("#example-description");
 var $submitBtn = $("#submit");
 var $exampleList = $("#example-list");
 
-import { Calendar } from '@fullcalendar/core';
-import dayGridPlugin from '@fullcalendar/daygrid';
-
-document.addEventListener('DOMContentLoaded', function() {
-  var calendarEl = document.getElementById('calendar');
-
-  var calendar = new Calendar(calendarEl, {
-    
-    plugins: [ dayGridPlugin ]
-  });
-
-  calendar.render();
-});
+console.log('made it!');
 
 // The API object contains methods for each kind of request we'll make
 var API = {
@@ -107,6 +95,31 @@ var handleDeleteBtnClick = function() {
     refreshExamples();
   });
 };
+
+var events = [
+  {'Date': new Date(2019, 11, 7), 'Title': 'Doctor appointment at 3:25pm.'},
+  {'Date': new Date(2019, 11, 18), 'Title': 'New Garfield movie comes out!', 'Link': 'https://garfield.com'},
+  {'Date': new Date(2019, 11, 27), 'Title': '25 year anniversary', 'Link': 'https://www.google.com.au/#q=anniversary+gifts'},
+];
+
+var settings = {
+  Color: '',
+  LinkColor: '',
+  NavShow: true,
+  NavVertical: false,
+  NavLocation: '',
+  DateTimeShow: true,
+  DateTimeFormat: 'mmm, yyyy',
+  DatetimeLocation: '',
+  EventClick: '',
+  EventTargetWholeDay: false,
+  DisabledDays: [],
+  ModelChange: ''
+};
+
+var element = document.getElementById('caleandar');
+console.log(events);
+caleandar(element, events, settings);
 
 // Add event listeners to the submit and delete buttons
 $submitBtn.on("click", handleFormSubmit);
