@@ -5,6 +5,14 @@
  *
  * Made By MaterializeCSS.com
  */
+ .header{
+   text-decoration: underline;
+ }
+ 
+ .exoFont{
+ font-family: 'Exo 2', sans-serif;
+ }
+
  .carousel-content {
   position: absolute;
   bottom: 10%;
