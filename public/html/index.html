@@ -3,34 +3,76 @@
 <head>
   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
-  <title>Parallax Template - Materialize</title>
+  <title>StarScout Home</title>
 
   <!-- CSS  -->
+  <link rel="shortcut icon" type="image/png" href="../images/favicon.png"/>
+  <link href="https://fonts.googleapis.com/css?family=Exo+2&display=swap" rel="stylesheet">
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css?family=Monoton&display=swap" rel="stylesheet">
   <link href="../styles/materialize.css" type="text/css" rel="stylesheet" media="screen,projection"/>
   <link href="../styles/style.css" type="text/css" rel="stylesheet" media="screen,projection"/>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 </head>
 <body>
 
+
+
   <div id="index-banner" class="parallax-container">
-    <div class="section no-pad-bot">
-      <div class="container">
+    <div class="section section1 no-pad-bot">
+      <div class="container">  
+<!--add hamburger menu for scrollspy here-->
+    
+<div class="dropdown">
+    <i class="fa fa-bars fa-2x burger-menu" ></i>  
+  <div class="dropdown-content">
+      <a href="#">HEADWEAR</a>
+      <a href="#">HOODIES/JACKETS/LONG SLEEVES</a>
+      <a href="#">SHIRTS</a>
+      <a href="#">BOTTOMS</a>
+      <a href="#">TOTE BAGS</a>
+    </div>
+  </div>
+  <!-- ... -->
         <br><br>
-        <h1 class="header center white-text text-lighten-2">Star Scout</h1>
+        <h1 class="center white-text text-lighten-2">Star Scout</h1>
         <div class="row center">
-          <h5 class="header col s12 light">Discover your next trip by chasing the stars</h5>
+          <h5 class="col s12 light flow-text exoFont">Discover your next trip by chasing the stars</h5>
         </div>
         <div class="row center">
-          <a href="http://materializecss.com/getting-started.html" id="download-button" class="btn-large waves-effect waves-light cyan lighten-1">Get Started</a>
+          <a href="http://materializecss.com/getting-started.html" id="download-button" class="btn-large waves-effect waves-light blue lighten-1 flow-text exoFont">Full Calendar</a>
         </div>
         <br><br>
 
         <div class="carousel">
-            <a class="carousel-item" href="#two!"><img src="https://lorempixel.com/500/500/nature/2"></a>
-            <a class="carousel-item" href="#three!"><img src="https://lorempixel.com/500/500/nature/3"></a>
-            <a class="carousel-item" href="#four!"><img src="https://lorempixel.com/500/500/nature/4"></a>
-            <a class="carousel-item" href="#five!"><img src="https://lorempixel.com/500/500/nature/5"></a>
+          <a class="carousel-item carouselPic" href= "https://www.wolframalpha.com/examples/science-and-technology/space-and-astronomy/astronomical-events/eclipses/">
+            <div class="carousel-content white-text flow-text exoFont">
+              <h2>Eclipses</h2>
+            </div>
+            <img src="../images/eclipse.jpg" >
+          </a>
+            
+          <a class="carousel-item carouselPic" href = "https://www.wolframalpha.com/examples/science-and-technology/space-and-astronomy/astronomical-events/sunrise-and-sunset/">
+              <div class="carousel-content white-text flow-text exoFont">
+                <h2>Sunrise/Sunsets</h2>
+              </div>
+            <img src="../images/sunset.jpg">
+          </a>
+            
+          <a class="carousel-item carouselPic" href= 'https://www.wolframalpha.com/examples/science-and-technology/space-and-astronomy/astronomical-events/lunar-phases/'>
+            <div class="carousel-content white-text flow-text exoFont">
+              <h2>Lunar Phases</h2>
+            </div>
+            <img src="../images/FullMoon.jpg">
+          </a>
+            
+          <a class="carousel-item carouselPic" href= "https://www.wolframalpha.com/examples/science-and-technology/space-and-astronomy/astronomical-events/meteor-showers/">
+            <div class="carousel-content white-text flow-text exoFont">
+              <h2>Meteor Showers</h2>
+            </div>
+            <img src="../images/meteorshower.jpg">
+          </a>
         </div>
         
       </div>
@@ -39,11 +81,10 @@
   </div>
 
 
-  <div class="container">
-    <div class="section">
+    <div class="section black">
 
       <!--   Icon Section   -->
-      <div class="row">
+      <!-- <div class="row">
         <div class="col s12 m4">
           <div class="icon-block">
             <h2 class="center cyan-text"><i class="material-icons">flash_on</i></h2>
@@ -51,9 +92,9 @@
 
             <p class="light">We did most of the heavy lifting for you to provide a default stylings that incorporate our custom components. Additionally, we refined animations and transitions to provide a smoother experience for developers.</p>
           </div>
-        </div>
+        </div> -->
 
-        <div class="col s12 m4">
+        <!-- <div class="col s12 m4">
           <div class="icon-block">
             <h2 class="center purple-text"><i class="material-icons">group</i></h2>
             <h5 class="center">User Experience Focused</h5>
@@ -69,7 +110,7 @@
 
             <p class="light">We have provided detailed documentation as well as specific code examples to help new users get started. We are also always open to feedback and can answer any questions a user may have about Materialize.</p>
           </div>
-        </div>
+        </div> -->
       </div>
 
     </div>
@@ -80,7 +121,7 @@
     <div class="section no-pad-bot">
       <div class="container">
         <div class="row center">
-          <h5 class="header col s12 light">A modern responsive front-end framework based on Material Design</h5>
+          <h5 class="col s12 light flow-text exoFont">Search for celestial events and learn when/where to camp and enjoy the show</h5>
         </div>
       </div>
     </div>
@@ -92,9 +133,9 @@
 
       <div class="row">
         <div class="col s12 center">
-          <h3><i class="mdi-content-send brown-text"></i></h3>
-          <h4>Contact Us</h4>
-          <p class="left-align light">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam scelerisque id nunc nec volutpat. Etiam pellentesque tristique arcu, non consequat magna fermentum ac. Cras ut ultricies eros. Maecenas eros justo, ullamcorper a sapien id, viverra ultrices eros. Morbi sem neque, posuere et pretium eget, bibendum sollicitudin lacus. Aliquam eleifend sollicitudin diam, eu mattis nisl maximus sed. Nulla imperdiet semper molestie. Morbi massa odio, condimentum sed ipsum ac, gravida ultrices erat. Nullam eget dignissim mauris, non tristique erat. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae;</p>
+          <h3><i class="mdi-content-send brown-text exoFont"></i></h3>
+          <h4>About</h4>
+          <p class="left-align light flow-text exoFont">Star Scout is a site created for the purpose of discovering upcoming astrological events, where the least light pollution is, and the best local camping areas for viewing. You can view our general calendar of events or select specific events from the home page carousel. You won't forget your plans because once you've chosen a campsite you can save the event to your google calendar!</p>
         </div>
       </div>
 
@@ -106,7 +147,7 @@
     <div class="section no-pad-bot">
       <div class="container">
         <div class="row center">
-          <h5 class="header col s12 light">A modern responsive front-end framework based on Material Design</h5>
+          <h5 class="col s12 light flow-text exoFont">View our interactive light pollution map</h5>
         </div>
       </div>
     </div>
@@ -117,34 +158,34 @@
     <div class="container">
       <div class="row">
         <div class="col l6 s12">
-          <h5 class="white-text">Company Bio</h5>
-          <p class="grey-text text-lighten-4">We are a team of college students working on this project like it's our full time job. Any amount would help support and continue development on this project and is greatly appreciated.</p>
+          <h5 class="white-text flow-text exoFont header">Our Mission</h5>
+          <p class="grey-text text-lighten-4 flow-text exoFont">We are a team of UT bootcamp students working on this project like it's our full time job. We hope to showcase our incredible creative and collaborative skills with our coding mastery.</p>
 
 
         </div>
-        <div class="col l3 s12">
-          <h5 class="white-text">Settings</h5>
+        <div class="col l4 s12">
+          <h5 class="white-text flow-text exoFont header">Team Members</h5>
           <ul>
-            <li><a class="white-text" href="#!">Link 1</a></li>
-            <li><a class="white-text" href="#!">Link 2</a></li>
-            <li><a class="white-text" href="#!">Link 3</a></li>
-            <li><a class="white-text" href="#!">Link 4</a></li>
+            <li><a class="white-text flow-text exoFont" href="#!">Marie Matisans</a></li>
+            <li><a class="white-text flow-text exoFont" href="#!">Sharon Story Smith</a></li>
+            <li><a class="white-text flow-text exoFont" href="#!">Santiago Tolosa-Zegarra</a></li>
+            <li><a class="white-text flow-text exoFont" href="#!">Tommy Vinyard</a></li>
           </ul>
         </div>
-        <div class="col l3 s12">
-          <h5 class="white-text">Connect</h5>
+        <div class="col l2 s12">
+          <h5 class="white-text flow-text exoFont header">Github Repos</h5>
           <ul>
-            <li><a class="white-text" href="#!">Link 1</a></li>
-            <li><a class="white-text" href="#!">Link 2</a></li>
-            <li><a class="white-text" href="#!">Link 3</a></li>
-            <li><a class="white-text" href="#!">Link 4</a></li>
+            <li><a class="white-text flow-text exoFont" href="https://github.com/mbolters?tab=repositories">Link 1</a></li>
+            <li><a class="white-text flow-text exoFont" href="https://github.com/sstorysmith?tab=repositories">Link 2</a></li>
+            <li><a class="white-text flow-text exoFont" href="https://github.com/SantiagoTZ8899?tab=repositories">Link 3</a></li>
+            <li><a class="white-text flow-text exoFont" href="https://github.com/tpvinyard?tab=repositories">Link 4</a></li>
           </ul>
         </div>
       </div>
     </div>
     <div class="footer-copyright">
-      <div class="container">
-      Made by <a class="brown-text text-lighten-3" href="http://materializecss.com">Materialize</a>
+      <div class="container flow-text exoFont">
+      Made by <a class="purple-text flow-text" href="https://github.com/SantiagoTZ8899/Project2">The Galaxy Squad</a>
       </div>
     </div>
   </footer>
