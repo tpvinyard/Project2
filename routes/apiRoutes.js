@@ -1,9 +1,58 @@
 var db = require("../models");
 const Datastore = require('nedb');
 const fetch = require('node-fetch');
+const passport = require('passport');
 
+
+const myVars = {
+  domain: 'stargazersproject.auth0.com',
+  clientID: '4u6Y6XtPah8d7MYPcmEK1MHQ8sCNTNiI',
+  clientSecret: '7XWhngqngeJIpT7SxzfVlZUkR7CwsUCR8J6Td1D4Smdng6PeSzL_7QdCpjJiowHb',
+  callbackURL: 'http://localhost:3000/callback'
+}
 
 module.exports = function(app) {
+  // auth0
+  app.get('/layouts', function(req, res, next) {
+    res.render('main');
+  });
+
+  // auth0 login function
+  app.get('/login', passport.authenticate('auth0', {
+    clientID: myVars.clientID,
+    domain: myVars.domain,
+    redirectUri: myVars.callbackURL,
+    responseType: 'code',
+    audience: 'https://stargazersproject.auth0.com/api/v2/',
+    scope: 'openid profile'}),
+    function(req, res) {
+      res.redirect('/');
+    }
+  );
+
+  app.get('/logout', function(req, res) {
+    req.logout();
+    res.redirect('/');
+  });
+
+  app.get('/callback',
+    passport.authenticate('auth0', {
+      failureRedirect: '/failure'
+    }),
+    function(req, res) {
+        res.redirect('/user');
+    }
+  );
+
+  app.get('/user', function(req, res, next) {
+    res.render('user', {
+      user: req.user
+    })
+  });
+
+  app.get('/failure', function(req, res, next) {
+    res.render('404');
+  });
 
   app.get("/api/meteorshowers", function(req, res) {
     db.meteorshowers.findAll({}).then(function(Result) {
