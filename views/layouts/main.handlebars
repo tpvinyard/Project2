@@ -3,9 +3,20 @@
 
 <head>
   <meta charset="utf-8">
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.3/css/bootstrap.min.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <title>StarScout Home</title>
+
+  <!-- CSS  -->
+  <link rel="shortcut icon" type="image/png" href="/images/favicon.png"/>
+  <link href="https://fonts.googleapis.com/css?family=Exo+2&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Monoton&display=swap" rel="stylesheet">
+  <link href="/styles/materialize.css" type="text/css" rel="stylesheet" media="screen,projection"/>
+  <link href="/styles/style.css" type="text/css" rel="stylesheet" media="screen,projection"/>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  {{!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.3/css/bootstrap.min.css"> --}}
   <link rel="stylesheet" href="/styles/styles.css" media="screen" title="no title" charset="utf-8">
-  <link rel="stylesheet" href="/styles/theme1.css">
   <style>
     #map-canvas {
       margin: 0;
@@ -13,7 +24,6 @@
       height: 100%;
     }
   </style>
-  <title>Home Page</title>
   <script src="https://code.jquery.com/jquery.js"></script>
   <script type="text/javascript" src="/js/ExtDraggableObject.js"></script>
   <script type="text/javascript" src="/js/maps.js"></script>
@@ -74,6 +84,13 @@ if ('geolocation' in navigator) {
 } else {
   console.log('geolocation not available');
 }
+  </script>
+  <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+  <script src="/js/materialize.js"></script>
+  <script src="/js/init.js"></script>
+  <script src="/js/index.js"></script>
+  <script>
+      $('.dropdown-trigger').dropdown();
   </script>
 
 

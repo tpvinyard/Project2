@@ -2,6 +2,7 @@ var db = require("../models");
 const Datastore = require('nedb');
 const fetch = require('node-fetch');
 const passport = require('passport');
+const convert = require('xml-js');
 
 
 const myVars = {
@@ -116,4 +117,23 @@ module.exports = function(app) {
       res.json(dbExample);
     });
   });
+
+  app.get('/campgrounds/:latlon', async (request, response) => {
+    console.log(request.params);
+    const latlon = request.params.latlon.split(',');
+    console.log(latlon);
+    const lat = latlon[0];
+    const lon = latlon[1];
+    console.log(lat, lon);
+    // const api_key = process.env.API_KEY;
+    const campground_url = `http://api.amp.active.com/camping/campgrounds?landmarkName=true&landmarkLat=${lat}&landmarkLong=${lon}&xml=true&api_key=5fqwnemydqsaxfcwd3qgrhrg`;
+    console.log(campground_url);
+    const campground_response = await fetch(campground_url);
+    console.log(campground_response);
+    const campground_data = await campground_response.convert.xml2json(campground_response);
+    const data = {
+      campground: campground_data,
+    };
+    response.json(data);
+  })
 };
