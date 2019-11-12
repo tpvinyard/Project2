@@ -106,19 +106,21 @@
         <div class="col s12 center">
           <h3><i class="mdi-content-send brown-text exoFont"></i></h3>
           <h4>Upcoming Events!</h4>
-          <div class="card horizontal">
-            <div class="card-image">
-              <img src="https://lorempixel.com/250/190/nature">
-            </div>
-            <div class="card-stacked">
-              <div class="card-content">
-                <p>When: </p>
+          {{#each index}}
+            <div class="card horizontal">
+              <div class="card-image">
+                <img src="https://lorempixel.com/250/350/nature">
               </div>
-              <div class="card-action">
-                <a href="#">More Information</a>
+              <div class="card-stacked">
+                <h5 class="card-title">Name {{this.shower_name}} </h5>
+                <p><strong>Start Date</strong>: {{this.begin_date}}</p>
+                <p><strong>End Date</strong>: {{this.end_date}}</p>
+                <p><strong>Max Date</strong>: {{this.max_date}}</p>
+                <p><strong>Max Rate per Hour</strong>: {{this.max_rate_per_hour}}</p>
+                <a href="/"> Detailed Info</a>
               </div>
             </div>
-          </div>
+          {{/each}}
         </div>
       </div>
 
