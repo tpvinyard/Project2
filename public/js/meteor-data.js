@@ -1,18 +1,29 @@
-let meteor = [{
-    shower_name: 'Quadrantids',
-    shower_nickname: 'QUA',
-    begin_date: '2019-12-22',
-    end_date: '2019-01-17',
-    max_date: '2019-01-04',
-    max_rate_per_hour: 120
-}, {shower_name: 'Lyrids',
-shower_nickname: 'LYR',
-begin_date: '2019-04-14',
-end_date: '2019-04-30',
-max_date: '2019-04-23',
-max_rate_per_hour: 18}
-];
-
-'Lyrids','LYR','2019-04-14','2019-04-30','2019-04-23',18
+let meteor = [{shower_name: 'Quadrantids', shower_nickname: 'QUA', begin_date: '2018-12-22', end_date: '2019-01-17', max_date: '2019-01-04', max_rate_per_hour: 120, type_of_event: 'Meteor Shower'},
+{shower_name: 'Lyrids', shower_nickname: 'LYR', begin_date: '2019-04-14', end_date: '2019-04-30', max_date: '2019-04-23', max_rate_per_hour: 18, type: 'Meteor Shower'},
+{shower_name: 'eta Aquarids', shower_nickname: 'ETA', begin_date: '2019-04-17', end_date: '2019-05-24', max_date: '2019-05-07', max_rate_per_hour: 60, type: 'Meteor Shower'},
+{shower_name: 'Southern delta Aquarids', shower_nickname: 'SDA', begin_date: '2019-07-21', end_date: '2019-08-23', max_date: '2019-07-30', max_rate_per_hour: 20, type: 'Meteor Shower'},
+{shower_name: 'Perseids', shower_nickname: 'PER', begin_date: '2019-07-17', end_date: '2019-09-01', max_date: '2019-08-13', max_rate_per_hour: 100, type: 'Meteor Shower'},
+{shower_name: 'Orionids', shower_nickname: 'ORI', begin_date: '2019-09-23', end_date: '2019-11-27', max_date: '2019-10-22', max_rate_per_hour: 23, type: 'Meteor Shower'},
+{shower_name: 'Leonids', shower_nickname: 'LEO', begin_date: '2019-11-02', end_date: '2019-11-30', max_date: '2019-11-18', max_rate_per_hour: 15, type: 'Meteor Shower'},
+{shower_name: 'Geminids', shower_nickname: 'GEM', begin_date: '2019-12-01', end_date: '2019-12-22', max_date: '2019-12-14', max_rate_per_hour: 120, type: 'Meteor Shower'},
+{shower_name: 'Ursids', shower_nickname: 'URS', begin_date: '2019-12-19', end_date: '2019-12-24', max_date: '2019-12-22', max_rate_per_hour: 10, type: 'Meteor Shower'},
+{shower_name: 'Anthelion Source', shower_nickname: 'ANT', begin_date: '2018-12-25', end_date: '2019-09-23', max_date: '2019-05-15', max_rate_per_hour: 3, type: 'Meteor Shower'},
+{shower_name: 'Coma Berenicids', shower_nickname: 'COM', begin_date: '2018-12-24', end_date: '2019-01-04', max_date: '2019-01-01', max_rate_per_hour: 5, type: 'Meteor Shower'},
+{shower_name: 'alpha Centaurids', shower_nickname: 'ACE', begin_date: '2019-02-02', end_date: '2019-02-19', max_date: '2019-02-08', max_rate_per_hour: 6, type: 'Meteor Shower'},
+{shower_name: 'eta Lyrids', shower_nickname: 'ELY', begin_date: '2019-05-06', end_date: '2019-05-13', max_date: '2019-05-11', max_rate_per_hour: 3, type: 'Meteor Shower'},
+{shower_name: 'alpha Capricornids', shower_nickname: 'CAP', begin_date: '2019-07-03', end_date: '2019-08-11', max_date: '2019-07-27', max_rate_per_hour: 4, type: 'Meteor Shower'},
+{shower_name: 'Piscis Austrinids', shower_nickname: 'PAU', begin_date: '2019-07-30', end_date: '2019-08-18', max_date: '2019-08-09', max_rate_per_hour: 5, type: 'Meteor Shower'},
+{shower_name: 'kappa Cygnids', shower_nickname: 'KCG', begin_date: '2019-08-08', end_date: '2019-08-17', max_date: '2019-08-14', max_rate_per_hour: 3, type: 'Meteor Shower'},
+{shower_name: 'Aurigids', shower_nickname: 'AUR', begin_date: '2019-08-18', end_date: '2019-09-07', max_date: '2019-09-01', max_rate_per_hour: 6, type: 'Meteor Shower'},
+{shower_name: 'September epsilon Perseids', shower_nickname: 'SPE', begin_date: '2019-09-03', end_date: '2019-10-03', max_date: '2019-09-11', max_rate_per_hour: 5, type: 'Meteor Shower'},
+{shower_name: 'epsilon Geminids', shower_nickname: 'EGE', begin_date: '2019-09-30', end_date: '2019-10-25', max_date: '2019-10-11', max_rate_per_hour: 2, type: 'Meteor Shower'},
+{shower_name: 'Leonis Minorids', shower_nickname: 'LMI', begin_date: '2019-10-12', end_date: '2019-11-05', max_date: '2019-10-23', max_rate_per_hour: 2, type: 'Meteor Shower'},
+{shower_name: 'Southern Taurids', shower_nickname: 'STA', begin_date: '2019-09-23', end_date: '2019-12-24', max_date: '2019-10-30', max_rate_per_hour: 5, type: 'Meteor Shower'},
+{shower_name: 'Northern Taurids', shower_nickname: 'NTA', begin_date: '2019-10-24', end_date: '2019-12-19', max_date: '2019-11-03', max_rate_per_hour: 5, type: 'Meteor Shower'},
+{shower_name: 'November Orionids', shower_nickname: 'NOO', begin_date: '2019-11-07', end_date: '2019-12-17', max_date: '2019-11-29', max_rate_per_hour: 3, type: 'Meteor Shower'},
+{shower_name: 'sigma Hydrids', shower_nickname: 'HYD', begin_date: '2019-11-24', end_date: '2019-12-21', max_date: '2019-12-06', max_rate_per_hour: 3, type: 'Meteor Shower'},
+{shower_name: 'Puppid/Velids', shower_nickname: 'PUP', begin_date: '2019-12-01', end_date: '2019-12-15', max_date: '2019-12-07', max_rate_per_hour: 10, type: 'Meteor Shower'},
+{shower_name: 'Monocerotids', shower_nickname: 'MON', begin_date: '2019-11-28', end_date: '2019-12-27', max_date: '2019-12-13', max_rate_per_hour: 2, type: 'Meteor Shower'},
+{shower_name: 'December Leonis Minorids', shower_nickname: 'DLM', begin_date: '2019-12-06', end_date: '2020-01-18', max_date: '2019-12-21', max_rate_per_hour: 5, type: 'Meteor Shower'}]
 
 module.exports = meteor;
