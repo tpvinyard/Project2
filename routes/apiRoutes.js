@@ -1,9 +1,59 @@
 var db = require("../models");
 const Datastore = require('nedb');
 const fetch = require('node-fetch');
+const passport = require('passport');
+const convert = require('xml-js');
 
+
+const myVars = {
+  domain: 'stargazersproject.auth0.com',
+  clientID: '4u6Y6XtPah8d7MYPcmEK1MHQ8sCNTNiI',
+  clientSecret: '7XWhngqngeJIpT7SxzfVlZUkR7CwsUCR8J6Td1D4Smdng6PeSzL_7QdCpjJiowHb',
+  callbackURL: 'http://localhost:3000/callback'
+}
 
 module.exports = function(app) {
+  // auth0
+  app.get('/layouts', function(req, res, next) {
+    res.render('main');
+  });
+
+  // auth0 login function
+  app.get('/login', passport.authenticate('auth0', {
+    clientID: myVars.clientID,
+    domain: myVars.domain,
+    redirectUri: myVars.callbackURL,
+    responseType: 'code',
+    audience: 'https://stargazersproject.auth0.com/api/v2/',
+    scope: 'openid profile'}),
+    function(req, res) {
+      res.redirect('/');
+    }
+  );
+
+  app.get('/logout', function(req, res) {
+    req.logout();
+    res.redirect('/');
+  });
+
+  app.get('/callback',
+    passport.authenticate('auth0', {
+      failureRedirect: '/failure'
+    }),
+    function(req, res) {
+        res.redirect('/user');
+    }
+  );
+
+  app.get('/user', function(req, res, next) {
+    res.render('user', {
+      user: req.user
+    })
+  });
+
+  app.get('/failure', function(req, res, next) {
+    res.render('404');
+  });
 
   app.get("/api/meteorshowers", function(req, res) {
     db.meteorshowers.findAll({}).then(function(Result) {
@@ -37,12 +87,7 @@ module.exports = function(app) {
     const timestamp = Date.now();
     data.timestamp = timestamp;
     database.insert(data);
-    response.json({
-      status: 'success',
-      timestamp: timestamp,
-      latitude: data.lat,
-      longitude: data.lon
-    });
+    response.json(data);
   });
 
   app.get('/weather/:latlon', async (request, response) => {
@@ -56,8 +101,11 @@ module.exports = function(app) {
     const weather_url = `https://api.darksky.net/forecast/ef516e4b2e594d932c47badeee23c8bb/${lat},${lon}/?units=us`;
     const weather_response = await fetch(weather_url);
     const weather_data = await weather_response.json();
+    const forecast_response = await fetch(weather_url);
+    const forecast_data = await forecast_response.json();
     const data = {
       weather: weather_data,
+      forecast: forecast_data
     };
     response.json(data);
   });
@@ -69,4 +117,23 @@ module.exports = function(app) {
       res.json(dbExample);
     });
   });
+
+  app.get('/campgrounds/:latlon', async (request, response) => {
+    console.log(request.params);
+    const latlon = request.params.latlon.split(',');
+    console.log(latlon);
+    const lat = latlon[0];
+    const lon = latlon[1];
+    console.log(lat, lon);
+    // const api_key = process.env.API_KEY;
+    const campground_url = `http://api.amp.active.com/camping/campgrounds?landmarkName=true&landmarkLat=${lat}&landmarkLong=${lon}&xml=true&api_key=5fqwnemydqsaxfcwd3qgrhrg`;
+    console.log(campground_url);
+    const campground_response = await fetch(campground_url);
+    console.log(campground_response);
+    const campground_data = await campground_response.convert.xml2json(campground_response);
+    const data = {
+      campground: campground_data,
+    };
+    response.json(data);
+  })
 };
