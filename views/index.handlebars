@@ -4,7 +4,7 @@
 <!--add hamburger menu for scrollspy here-->
     
     <div class="dropdown">
-        <i class="dropdown-trigger fa fa-bars fa-2x burger-menu" data-target='dropdown'></i>  
+        <i class="dropdown-trigger fa fa-bars fa-4x burger-menu" data-target='dropdown'></i>  
       <ul class="dropdown-content" id="dropdown">
         <li class="nav-item active">
           <a class="nav-link" href="/">Home <span class="sr-only">(current)</span></a>
@@ -62,71 +62,53 @@
             </div>
             <img src="/images/meteorshower.jpg">
           </a>
-        </div>
-        
+        </div>    
       </div>
     </div>
     <div class="parallax"><img src="/images/background1.jpg" alt="Unsplashed background img 1"></div>
   </div>
 
-
-      <div class="container">
-        <div class="section">
-
-          <div class="row">
-            <div class="col s12 center">
-              <h3><i class="mdi-content-send brown-text exoFont"></i></h3>
-              <h4>About</h4>
-              <p class="left-align light flow-text exoFont">Star Scout is a site created for the purpose of discovering upcoming astrological events, where the least light pollution is, and the best local camping areas for viewing. You can view our general calendar of events or select specific events from the home page carousel. You won't forget your plans because once you've chosen a campsite you can save the event to your google calendar!</p>
-            </div>
-          </div>
-
-        </div>
-      </div>
-
-    </div>
-  </div>
-
-
   <div class="parallax-container valign-wrapper">
     <div class="section no-pad-bot">
       <div class="container">
-        <div class="row center">
-          <h5 class="col s12 light flow-text exoFont">Search for celestial events and learn when/where to camp and enjoy the show</h5>
+        <div class="section">
+          <div class="row">
+            <div class="col s12 center exoFont">
+              <h4 class="flow-text upcoming">Upcoming Events!</h4>
+              {{#each index}}
+                <div class="card eventsCard horizontal">
+                  <div class="card-image">
+                    <img src="https://lorempixel.com/250/350/nature"> <!--when we get types into SQL set photos via unsplash to match type of event-->
+                  </div>
+                  <div class="card-stacked">
+                    <h5 class="card-title">Name {{this.shower_name}} </h5>
+                    <p><strong>Start Date</strong>: {{this.begin_date}}</p>
+                    <p><strong>End Date</strong>: {{this.end_date}}</p>
+                    <p><strong>Max Date</strong>: {{this.max_date}}</p>
+                    <p><strong>Max Rate per Hour</strong>: {{this.max_rate_per_hour}}</p>
+                    <a href="/"> Detailed Info</a>
+                  </div>
+                </div>
+              {{/each}}
+            </div>
+          </div>
         </div>
       </div>
+      <div class="parallax"><img src="/images/background2.jpg" alt="Unsplashed background img 2"></div>
     </div>
-    <div class="parallax"><img src="/images/background2.jpg" alt="Unsplashed background img 2"></div>
   </div>
 
   <div class="container">
     <div class="section">
-
       <div class="row">
         <div class="col s12 center">
-          <h3><i class="mdi-content-send brown-text exoFont"></i></h3>
-          <h4>Upcoming Events!</h4>
-          {{#each index}}
-            <div class="card horizontal">
-              <div class="card-image">
-                <img src="https://lorempixel.com/250/350/nature">
-              </div>
-              <div class="card-stacked">
-                <h5 class="card-title">Name {{this.shower_name}} </h5>
-                <p><strong>Start Date</strong>: {{this.begin_date}}</p>
-                <p><strong>End Date</strong>: {{this.end_date}}</p>
-                <p><strong>Max Date</strong>: {{this.max_date}}</p>
-                <p><strong>Max Rate per Hour</strong>: {{this.max_rate_per_hour}}</p>
-                <a href="/"> Detailed Info</a>
-              </div>
-            </div>
-          {{/each}}
+          <h3><i class="mdi-content-send flow-text exoFont"></i></h3>
+          <h4>About</h4>
+          <p class="left-align light flow-text exoFont">Star Scout is a site created for the purpose of discovering upcoming astrological events, where the least light pollution is, and the best local camping areas for viewing. You can view our general calendar of events or select specific events from the home page carousel. You won't forget your plans because once you've chosen a campsite you can save the event to your google calendar!</p>
         </div>
       </div>
-
     </div>
   </div>
-
 
   <div class="parallax-container valign-wrapper">
     <div class="section no-pad-bot">
@@ -138,6 +120,8 @@
     </div>
     <div class="parallax"><img src="/images/background3.jpg" alt="Unsplashed background img 3"></div>
   </div>
+
+
 
   <footer class="page-footer blue">
     <div class="container">
