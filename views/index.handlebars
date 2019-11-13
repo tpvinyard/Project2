@@ -1,84 +1,176 @@
-<nav class="navbar navbar-expand-lg navbar-light bg-light">
-  <a class="navbar-brand" href="/">Project2</a>
-  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-    <span class="navbar-toggler-icon"></span>
-  </button>
-  <div class="collapse navbar-collapse" id="navbarNav">
-    <ul class="navbar-nav">
-      <li class="nav-item active">
-        <a class="nav-link" href="/">Home <span class="sr-only">(current)</span></a>
-      </li>
-      {{#if loggedIn}}
-      <li class="nav-item">
-        <a class="nav-link" href="/user">Profile</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="/logout">Log Out</a>
-      </li>
-      {{else}}
-      <li class="nav-item">
-        <a class="nav-link" href="/login">Log In</a>
-      </li>
-      {{/if}}
-    </ul>
-  </div>
-</nav>
+<div id="index-banner" class="parallax-container">
+    <div class="section section1 no-pad-bot">
+      <div class="container">  
+<!--add hamburger menu for scrollspy here-->
+    
+    <div class="dropdown">
+        <i class="dropdown-trigger fa fa-bars fa-2x burger-menu" data-target='dropdown'></i>  
+      <ul class="dropdown-content" id="dropdown">
+        <li class="nav-item active">
+          <a class="nav-link" href="/">Home <span class="sr-only">(current)</span></a>
+        </li>
+        {{#if loggedIn}}
+        <li class="nav-item">
+          <a class="nav-link" href="/user">Profile</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/logout">Log Out</a>
+        </li>
+        {{else}}
+        <li class="nav-item">
+          <a class="nav-link" href="/login">Log In</a>
+        </li>
+        {{/if}}
+      </ul>
+    </div>
+  <!-- ... -->
+        <br><br>
+        <h1 class="center white-text text-lighten-2">Star Scout</h1>
+        <div class="row center">
+          <h5 class="col s12 light flow-text exoFont">Discover your next trip by chasing the stars</h5>
+        </div>
+        <div class="row center">
+          <a href="http://materializecss.com/getting-started.html" id="download-button" class="btn-large waves-effect waves-light blue lighten-1 flow-text exoFont">Full Calendar</a>
+        </div>
+        <br><br>
 
-<div id="home">
-  <div class="container">
-    <div class="row">
-      <div class="col-8 offset-2">
-        <div id="map-canvas"></div>
-        <div id="caleandar"></div>
-        <h1>{{msg}}</h1>
-        <h2>This is our Home Page!</h2>
-        <form class="clearfix mb-4" action="POST">
-          <div class="form-group">
-            <label for="example-text">Example Text</label>
-            <input type="text" id="example-text" class="form-control" aria-describedby="example-text" placeholder="Enter Example Text">
-          </div>
-          <div class="form-group">
-            <label for="example-description">Example Description</label>
-            <textarea class="form-control" id="example-description" aria-describedby="example-description" placeholder="Enter Example Description"></textarea>
-          </div>
-          <button id="submit" class="btn btn-primary float-right">Submit</button>
-        </form>
-        <h3>Examples:</h3>
-        <ul id="example-list" class="list-group">
-          {{#each examples}}
-          <li data-id="{{this.id}}" class="list-group-item">
-            <a href="example/{{this.id}}">{{this.text}}</a>
-            <button class="btn btn-danger float-right delete">ｘ</button>
-          </li>
-          {{/each}}
-
-          <p>
-            Current location <span id="latitude"></span>&deg;,
-            <span id="longitude"></span>&deg;.
-          </p>
-          <p>
-            It is <span id="summary"></span> with
-            a temperature of <span id="temp"></span>&deg; F.
-          </p>
-          <p>
-            It will be <span id="forecast"></span>.
-          </p>
-          <p>
-            The Sun will rise at <span id="sunrise"></span> minutes.
-          </p>
-          <p>
-            The Sun will set at <span id="sunset"></span> minutes.
-          </p>
-          <p>
-            The current Moon phase is <span id="moonphase"></span>.
-          </p>
-            <button id="geolocate">Check here</button>
+        <div class="carousel">
+          <a class="carousel-item carouselPic" href= "https://www.wolframalpha.com/examples/science-and-technology/space-and-astronomy/astronomical-events/eclipses/">
+            <div class="carousel-content white-text flow-text exoFont">
+              <h2>Eclipses</h2>
+            </div>
+            <img src="/images/eclipse.jpg" >
+          </a>
             
-        </ul>
+          <a class="carousel-item carouselPic" href = "https://www.wolframalpha.com/examples/science-and-technology/space-and-astronomy/astronomical-events/sunrise-and-sunset/">
+              <div class="carousel-content white-text flow-text exoFont">
+                <h2>Sunrise/Sunsets</h2>
+              </div>
+            <img src="/images/sunset.jpg">
+          </a>
+            
+          <a class="carousel-item carouselPic" href= 'https://www.wolframalpha.com/examples/science-and-technology/space-and-astronomy/astronomical-events/lunar-phases/'>
+            <div class="carousel-content white-text flow-text exoFont">
+              <h2>Lunar Phases</h2>
+            </div>
+            <img src="/images/FullMoon.jpg">
+          </a>
+            
+          <a class="carousel-item carouselPic" href= "https://www.wolframalpha.com/examples/science-and-technology/space-and-astronomy/astronomical-events/meteor-showers/">
+            <div class="carousel-content white-text flow-text exoFont">
+              <h2>Meteor Showers</h2>
+            </div>
+            <img src="/images/meteorshower.jpg">
+          </a>
+        </div>
+        
       </div>
     </div>
+    <div class="parallax"><img src="/images/background1.jpg" alt="Unsplashed background img 1"></div>
   </div>
-</div>
 
-<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-<script src="/js/index.js"></script>
+
+      <div class="container">
+        <div class="section">
+
+          <div class="row">
+            <div class="col s12 center">
+              <h3><i class="mdi-content-send brown-text exoFont"></i></h3>
+              <h4>About</h4>
+              <p class="left-align light flow-text exoFont">Star Scout is a site created for the purpose of discovering upcoming astrological events, where the least light pollution is, and the best local camping areas for viewing. You can view our general calendar of events or select specific events from the home page carousel. You won't forget your plans because once you've chosen a campsite you can save the event to your google calendar!</p>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+
+  <div class="parallax-container valign-wrapper">
+    <div class="section no-pad-bot">
+      <div class="container">
+        <div class="row center">
+          <h5 class="col s12 light flow-text exoFont">Search for celestial events and learn when/where to camp and enjoy the show</h5>
+        </div>
+      </div>
+    </div>
+    <div class="parallax"><img src="/images/background2.jpg" alt="Unsplashed background img 2"></div>
+  </div>
+
+  <div class="container">
+    <div class="section">
+
+      <div class="row">
+        <div class="col s12 center">
+          <h3><i class="mdi-content-send brown-text exoFont"></i></h3>
+          <h4>Upcoming Events!</h4>
+          {{#each index}}
+            <div class="card horizontal">
+              <div class="card-image">
+                <img src="https://lorempixel.com/250/350/nature">
+              </div>
+              <div class="card-stacked">
+                <h5 class="card-title">Name {{this.shower_name}} </h5>
+                <p><strong>Start Date</strong>: {{this.begin_date}}</p>
+                <p><strong>End Date</strong>: {{this.end_date}}</p>
+                <p><strong>Max Date</strong>: {{this.max_date}}</p>
+                <p><strong>Max Rate per Hour</strong>: {{this.max_rate_per_hour}}</p>
+                <a href="/"> Detailed Info</a>
+              </div>
+            </div>
+          {{/each}}
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+
+  <div class="parallax-container valign-wrapper">
+    <div class="section no-pad-bot">
+      <div class="container">
+        <div class="row center">
+          <h5 class="col s12 light flow-text exoFont">View our interactive light pollution map</h5>
+        </div>
+      </div>
+    </div>
+    <div class="parallax"><img src="/images/background3.jpg" alt="Unsplashed background img 3"></div>
+  </div>
+
+  <footer class="page-footer blue">
+    <div class="container">
+      <div class="row">
+        <div class="col l6 s12">
+          <h5 class="white-text flow-text exoFont header">Our Mission</h5>
+          <p class="grey-text text-lighten-4 flow-text exoFont">We are a team of UT bootcamp students working on this project like it's our full time job. We hope to showcase our incredible creative and collaborative skills with our coding mastery.</p>
+
+
+        </div>
+        <div class="col l4 s12">
+          <h5 class="white-text flow-text exoFont header">Team Members</h5>
+          <ul>
+            <li><a class="white-text flow-text exoFont" href="#!">Marie Matisans</a></li>
+            <li><a class="white-text flow-text exoFont" href="#!">Sharon Story Smith</a></li>
+            <li><a class="white-text flow-text exoFont" href="#!">Santiago Tolosa-Zegarra</a></li>
+            <li><a class="white-text flow-text exoFont" href="#!">Tommy Vinyard</a></li>
+          </ul>
+        </div>
+        <div class="col l2 s12">
+          <h5 class="white-text flow-text exoFont header">Github Repos</h5>
+          <ul>
+            <li><a class="white-text flow-text exoFont" href="https://github.com/mbolters?tab=repositories">Link 1</a></li>
+            <li><a class="white-text flow-text exoFont" href="https://github.com/sstorysmith?tab=repositories">Link 2</a></li>
+            <li><a class="white-text flow-text exoFont" href="https://github.com/SantiagoTZ8899?tab=repositories">Link 3</a></li>
+            <li><a class="white-text flow-text exoFont" href="https://github.com/tpvinyard?tab=repositories">Link 4</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="footer-copyright">
+      <div class="container flow-text exoFont">
+      Made by <a class="purple-text flow-text" href="https://github.com/SantiagoTZ8899/Project2">The Galaxy Squad</a>
+      </div>
+    </div>
+  </footer>
