@@ -52,5 +52,72 @@
   </div>
 </div>
 
+  <script>
+// Geo Locate
+let lat, lon;
+if ('geolocation' in navigator) {
+  console.log('geolocation available');
+  navigator.geolocation.getCurrentPosition(async position => {
+    let lat, lon, weather, forecast;
+    try {
+      lat = position.coords.latitude;
+      lon = position.coords.longitude;
+      document.getElementById('latitude').textContent = lat.toFixed(2);
+      document.getElementById('longitude').textContent = lon.toFixed(2);
+      const api_url_camp = `campgrounds/${lat},${lon}`
+      const response_camp = await fetch(api_url_camp);
+      const json_camp = await response_camp.json();
+      let campgroundArray = new Array();
+      for (let camp of json_camp) {
+        let campgroundTemp = new Array();
+        console.log(camp.$.latitude);
+        console.log(camp);
+        let campgroundName = camp.$.facilityName;
+        let campgroundLat = camp.$.latitude;
+        let campgroundLon = camp.$.longitude;
+        let campgroundZ = 3;
+        campgroundTemp.push(campgroundName)
+        campgroundTemp.push(campgroundLat)
+        campgroundTemp.push(campgroundLon)
+        campgroundTemp.push(campgroundZ);
+        console.log(campgroundTemp);
+        campgroundArray.push(campgroundTemp);
+      }
+      setMarkers(map, campgroundArray);
+      const api_url = `weather/${lat},${lon}`;
+      const response = await fetch(api_url);
+      const json = await response.json();
+      forecast = json.weather.daily;
+      weather = json.weather.currently;
+      document.getElementById('summary').textContent = weather.summary;
+      document.getElementById('temp').textContent = weather.temperature;
+      document.getElementById('forecast').textContent = forecast.data[0].summary;
+      document.getElementById('sunrise').textContent = forecast.data[0].sunriseTime;
+      document.getElementById('sunset').textContent = forecast.data[0].sunsetTime;
+      document.getElementById('moonphase').textContent = forecast.data[0].moonPhase;
+
+    } catch (error) {
+      console.log(error);
+    }
+
+    const data = { lat, lon, weather, forecast };
+    const options = {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify(data)
+    };
+    const db_response = await fetch('/api', options);
+    const db_json = await db_response.json();
+    console.log(db_json);
+  });
+} else {
+  console.log('geolocation not available');
+}
+</script>
+<script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+<script src="/js/materialize.js"></script>
+<script src="/js/init.js"></script>
 <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 <script src="/js/index.js"></script>
