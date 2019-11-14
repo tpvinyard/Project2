@@ -43,14 +43,20 @@ module.exports = function(app) {
     });
   });
 
+  app.get("/calendar", function(req, res) {
+    db.meteorshowers.findAll({}).then(function(result) {
+      res.render('calendar', {
+        index: result
+      });
+    })
+
+  });
+
   // Render 404 page for any unmatched routes
   app.get("*", function(req, res) {
     res.render("404");
   });
 
-  app.get("/calendar", function(req, res) {
-    res.render("calendar", {
-    })
-  })
+
   
 };
