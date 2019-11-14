@@ -1,3 +1,42 @@
 .list-group-item {
   line-height: 2.5;
 }
+
+#innerprofile {
+  margin-top: 50px;
+  color: whitesmoke;
+  background-color: rgba(44, 44, 44, 0.342);
+  font-size: 24px;
+  font-family: "Gill Sans", "Gill Sans MT", "Myriad Pro", "DejaVu Sans Condensed", Helvetica, Arial, "sans-serif";
+}
+
+body {
+  background-image: url("/images/moonrise.jpg");
+  background-color: #2e2e2e;
+  background-repeat: no-repeat;
+  background-size: cover;
+ }
+
+#welcomeback {
+  font-size: 36pt;
+}
+
+#myImg {
+  height: 300px;
+  width: 300px;
+}
+
+#darksky {
+  padding: 0px;
+  background-color: rgba(44, 44, 44, 0.342);
+}
+
+#searchdiv {
+  color: whitesmoke;
+
+}
+
+#location {
+  color: whitesmoke;
+
+}
