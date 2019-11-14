@@ -1,18 +1,70 @@
+<div id="index-banner" class="parallax-container">
+    <div class="section section1 no-pad-bot">
+      <div class="container">  
+<!--add hamburger menu for scrollspy here-->
+    
+    <div class="dropdown">
+        <i class="dropdown-trigger fa fa-bars fa-4x burger-menu" data-target='dropdown'></i>  
+      <ul class="dropdown-content" id="dropdown">
+        <li class="nav-item active">
+          <a class="nav-link" href="/">Home <span class="sr-only">(current)</span></a>
+        </li>
+        {{#if loggedIn}}
+        <li class="nav-item">
+          <a class="nav-link" href="/user">Profile</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/logout">Log Out</a>
+        </li>
+        {{else}}
+        <li class="nav-item">
+          <a class="nav-link" href="/login">Log In</a>
+        </li>
+        {{/if}}
+      </ul>
+    </div>
+
 <div class="container">
   <div class="row">
     <div class="col-8 offset-2">
-      <div class="card mt-4">
+      <div class="card mt-4" id="innerprofile">
         <div class="card-body">
-          <h5 class="card-title">Profile</h5>
-          <p>
-            Hi: {{user.nickname}}</p>
-          <p>
-          <div>
-            <img src="{{{user.picture}}}"/> This is you, wow.
-          </div>
-            <a href="/">← Back To Home</a>
+
+          <h5 class="card-title" id="welcomeback"><strong>Welcome back StarScout.</strong></h5>
+          
+          <h2 id="innerprofile">
+            Hi: {{user.nickname}}
+          </h2>
+
+          {{!-- <div id="innerprofile"> --}}
+            {{!-- <img src="{{{user.picture}}}"/> --}}
+          {{!-- </div> --}}
+
+          <img id="myImg" src="https://lorempixel.com/250/350/nature" height="200px" width="100px">
+          <input type='file' />
+
+
         </div>
       </div>
+      <a href="/">← Home</a>
     </div>
   </div>
 </div>
+
+<script>
+window.addEventListener('load', function() {
+  document.querySelector('input[type="file"]').addEventListener('change', function() {
+      if (this.files && this.files[0]) {
+          var img = document.querySelector('img');  // $('img')[0]
+          img.src = URL.createObjectURL(this.files[0]); // set src to blob url
+          img.onload = imageIsLoaded;
+      }
+  });
+});
+
+function imageIsLoaded() { 
+  alert(this.src);  // blob url
+  // update width and height ...
+}
+</script>
+

@@ -119,4 +119,23 @@ if ('geolocation' in navigator) {
 <script src="/js/materialize.js"></script>
 <script src="/js/init.js"></script>
 <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+{{!-- <script>
+    $('#geolocate').click(function() {
+    var location = $("#location").val();
+    if (location != '') {
+      .ajax ({
+        url: 'http://api.openweathermap.org/data/2.5/weather?q=' + location + '&units=imperial' + '560a44dd3a91049359b3ff212530bb7f',
+        type: "GET",
+        datatype: "jsonp",
+        success: function(data) {
+          console.log("weather" + data);
+        }
+      });
+
+    } else {
+      throw(err);
+    }
+  })
+</script> --}}
+
 <script src="/js/index.js"></script>
