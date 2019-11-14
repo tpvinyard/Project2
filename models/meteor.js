@@ -5,7 +5,8 @@ module.exports = function(sequelize, DataTypes) {
         begin_date: DataTypes.DATE,
         end_date: DataTypes.DATE,
         max_date: DataTypes.DATE,
-        max_rate_per_hour: DataTypes.INTEGER
+        max_rate_per_hour: DataTypes.INTEGER,
+        type_of_event: DataTypes.STRING
     });
     return Meteorshower;
   };

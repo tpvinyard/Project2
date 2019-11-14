@@ -2,8 +2,10 @@ var db = require("../models");
 const Datastore = require('nedb');
 const fetch = require('node-fetch');
 const passport = require('passport');
-const convert = require('xml-js');
-
+const parseString = require('xml2js').parseString;
+// var XMLSerializer = require('xmlserializer');
+// // const $ = require('jquery');
+// var DOMParser = require('xmldom');
 
 const myVars = {
   domain: 'stargazersproject.auth0.com',
@@ -127,13 +129,11 @@ module.exports = function(app) {
     console.log(lat, lon);
     // const api_key = process.env.API_KEY;
     const campground_url = `http://api.amp.active.com/camping/campgrounds?landmarkName=true&landmarkLat=${lat}&landmarkLong=${lon}&xml=true&api_key=5fqwnemydqsaxfcwd3qgrhrg`;
+    // const campground_url = `http://api.amp.active.com/camping/campgrounds?landmarkName=true&landmarkLat=37.84035&landmarkLong=-122.4888889&xml=true&api_key=5fqwnemydqsaxfcwd3qgrhrg`;
     console.log(campground_url);
-    const campground_response = await fetch(campground_url);
-    console.log(campground_response);
-    const campground_data = await campground_response.convert.xml2json(campground_response);
-    const data = {
-      campground: campground_data,
-    };
-    response.json(data);
+    await fetch(campground_url)
+      .then(response => response.text())
+      .then(data => parseString(data,function(err, res) {response.json(res.resultset.result)}))
+    // console.log($(campground_response).serialize());
   })
 };
