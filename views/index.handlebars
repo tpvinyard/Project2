@@ -45,29 +45,29 @@
       </div>
       <br><br>
 
-        <div class="carousel">
-          <a class="carousel-item carouselPic" href= "https://www.wolframalpha.com/examples/science-and-technology/space-and-astronomy/astronomical-events/eclipses/">
+        <div class="carousel1">
+          <a class="carousel-item1 carouselPic" href= "https://www.wolframalpha.com/examples/science-and-technology/space-and-astronomy/astronomical-events/eclipses/">
             <div class="carousel-content white-text flow-text exoFont">
               <h2>Eclipses</h2>
             </div>
             <img src="/images/eclipse.jpg" >
           </a>
           
-          <a class="carousel-item carouselPic" href = "https://www.wolframalpha.com/examples/science-and-technology/space-and-astronomy/astronomical-events/sunrise-and-sunset/">
+          <a class="carousel-item1 carouselPic" href = "https://www.wolframalpha.com/examples/science-and-technology/space-and-astronomy/astronomical-events/sunrise-and-sunset/">
               <div class="carousel-content white-text flow-text exoFont">
                 <h2>Sunrise/Sunsets</h2>
               </div>
             <img src="/images/sunset.jpg">
           </a>
             
-          <a class="carousel-item carouselPic" href= 'https://www.wolframalpha.com/examples/science-and-technology/space-and-astronomy/astronomical-events/lunar-phases/'>
+          <a class="carousel-item1 carouselPic" href= 'https://www.wolframalpha.com/examples/science-and-technology/space-and-astronomy/astronomical-events/lunar-phases/'>
             <div class="carousel-content white-text flow-text exoFont">
               <h2>Lunar Phases</h2>
             </div>
             <img src="/images/FullMoon.jpg">
           </a>
             
-          <a class="carousel-item carouselPic" href= "https://www.wolframalpha.com/examples/science-and-technology/space-and-astronomy/astronomical-events/meteor-showers/">
+          <a class="carousel-item1 carouselPic" href= "https://www.wolframalpha.com/examples/science-and-technology/space-and-astronomy/astronomical-events/meteor-showers/">
             <div class="carousel-content white-text flow-text exoFont">
               <h2>Meteor Showers</h2>
             </div>
@@ -181,6 +181,20 @@
  
   $(document).ready(function(){
     $('.scrollspy').scrollSpy();
+  });
+
+
+  $(document).ready(function(){
+    $('.carousel').carousel({
+      padding: 200    
+    });
+      
+  autoplay();
+  
+  function autoplay() {
+    $('.carousel').carousel('next');
+    setTimeout(autoplay, 5000);
+}
   });
 
 </script>
