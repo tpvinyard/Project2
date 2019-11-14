@@ -1,6 +1,7 @@
 var db = require("../models");
 var meteors = require("../public/js/meteor-data.js")
 const moment = require('moment');
+const { Op } = require('sequelize');
 
 console.log(meteors);
 
@@ -10,11 +11,12 @@ module.exports = function(app) {
     await db.meteorshowers.destroy({ where: {}, truncate: true
     });
     await db.meteorshowers.bulkCreate(meteors);
-    let thirtyDaysAgo = moment().subtract(360, 'days').format('YYYY-MM-DD')
-    console.log(thirtyDaysAgo);
+    let thirtyDaysFromNow = moment().add(30, 'days').format('YYYY-MM-DD')
+    console.log(thirtyDaysFromNow);
     await db.meteorshowers.findAll({ where: {
-      end_date: {
-        $gte: thirtyDaysAgo
+      begin_date: {
+        [Op.lte]: thirtyDaysFromNow,
+        [Op.gte]: moment().format('YYYY-MM-DD')
       }
     }}).then(function(result) {
       res.render('index', {

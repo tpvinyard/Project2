@@ -1,3 +1,5 @@
+
+
 let map, overlay, infoWindow;
 let initialOpacity = 0.5;
 let OPACITY_MAX_PIXELS = 57; // Width of opacity control image
@@ -13,6 +15,8 @@ var mapOptions = {
 map = new google.maps.Map(document.getElementById('map-canvas'),
     mapOptions);
 
+setMarkers(map);
+
 var bounds = {
     0: [[0,  0], [0, 0]],
     1: [[0,  1], [0, 1]],
@@ -24,6 +28,7 @@ var bounds = {
 };
 
 infoWindow = new google.maps.InfoWindow;
+let campgroundReturn;
 
 if (navigator.geolocation) {
 navigator.geolocation.getCurrentPosition(function(position) {
@@ -31,6 +36,12 @@ navigator.geolocation.getCurrentPosition(function(position) {
     lat: position.coords.latitude,
     lng: position.coords.longitude
     };
+
+    let latlon = `${pos.lat},${pos.lng}`
+
+    const api_url = `campgrounds/${latlon}`;
+    // campgroundReturn = fetch(api_url).then(data => response.json(data));
+    console.log(fetch(api_url))
 
     infoWindow.setPosition(pos);
     infoWindow.setContent('Location found.');
@@ -307,6 +318,65 @@ createOpacityControl(map);
 map.overlayMapTypes.insertAt(0, overlayfull);
 
 }
+
+// function getCampgrounds() {
+//     let latlon = `${pos.lat},${pos.lng}`;
+//     return $.ajax({
+//       headers: {
+//         "Content-Type": "application/json"
+//       },
+//       type: "GET",
+//       url: `/campgrounds/${latlon}`,
+//     });
+//   }
+
+// console.log(getCampgrounds());
+
+
+  
+function setMarkers(map) {
+    // Adds markers to the map.
+    var beaches = [
+        ['Bondi Beach', 30.890542, -97.274856, 4],
+        ['Coogee Beach', 30.923036, -97.259052, 5],
+        ['Cronulla Beach', 30.028249, -97.157507, 3],
+        ['Manly Beach', 30.80010128657071, -97.28747820854187, 2],
+        ['Maroubra Beach', 30.950198, -97.259302, 1]
+    ];
+
+    // Marker sizes are expressed as a Size of X,Y where the origin of the image
+    // (0,0) is located in the top left of the image.
+  
+    // Origins, anchor positions and coordinates of the marker increase in the X
+    // direction to the right and in the Y direction down.
+    var image = {
+      url: 'https://developers.google.com/maps/documentation/javascript/examples/full/images/beachflag.png',
+      // This marker is 20 pixels wide by 32 pixels high.
+      size: new google.maps.Size(20, 32),
+      // The origin for this image is (0, 0).
+      origin: new google.maps.Point(0, 0),
+      // The anchor for this image is the base of the flagpole at (0, 32).
+      anchor: new google.maps.Point(0, 32)
+    };
+    // Shapes define the clickable region of the icon. The type defines an HTML
+    // <area> element 'poly' which traces out a polygon as a series of X,Y points.
+    // The final coordinate closes the poly by connecting to the first coordinate.
+    var shape = {
+      coords: [1, 1, 1, 20, 18, 20, 18, 1],
+      type: 'poly'
+    };
+    for (var i = 0; i < beaches.length; i++) {
+      var beach = beaches[i];
+      var marker = new google.maps.Marker({
+        position: {lat: beach[1], lng: beach[2]},
+        map: map,
+        icon: image,
+        shape: shape,
+        title: beach[0],
+        zIndex: beach[3]
+      });
+    }
+  }
 
 function createOpacityControl(map) {
         var sliderImageUrl = "opacity-slider3d7.png";
