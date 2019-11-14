@@ -3,12 +3,14 @@ CREATE DATABASE starsdb;
 
 CREATE TABLE meteorshowers
 (
-	id int NOT NULL AUTO_INCREMENT PRIMARY KEY,
-	shower_name varchar(255) NOT NULL,
+    id int NOT NULL AUTO_INCREMENT PRIMARY KEY,
+    shower_name varchar(255) NOT NULL,
     shower_nickname varchar(50),
-	begin_date DATE NOT NULL,
-    end_date DATE NOT NULL,
-    max_date DATE,
+    begin_date date NOT NULL,
+    end_date date NOT NULL,
+    max_date date,
+    createdAt date,
+    updatedAt date,
     type_of_event varchar (250),
     max_rate_per_hour INT
 );
