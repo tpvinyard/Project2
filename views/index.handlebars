@@ -86,7 +86,7 @@
                     <p><strong>End Date</strong>: {{this.end_date}}</p>
                     <p><strong>Max Date</strong>: {{this.max_date}}</p>
                     <p><strong>Max Rate per Hour</strong>: {{this.max_rate_per_hour}}</p>
-                    <a href="/"> Detailed Info</a>
+                    <a href="/results/{{this.id}}"> Detailed Info</a>
                   </div>
                 </div>
               {{/each}}
@@ -152,3 +152,14 @@
       </div>
     </div>
   </footer>
+
+    <script>
+      Cesium.Ion.defaultAccessToken = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJqdGkiOiI1Y2MwNTQxNC0zZGFjLTRiY2UtOGU0Yy0wNGJjZmFlNWRmNGMiLCJpZCI6MTgzNjgsInNjb3BlcyI6WyJhc3IiLCJnYyJdLCJpYXQiOjE1NzM3MDU3NDZ9.V8omh_JjiRHBtHixS03SPgH9i-KsmNo346USJzezqKc';
+
+    var viewer = new Cesium.Viewer('cesiumContainer',{
+        terrainProvider : new Cesium.CesiumTerrainProvider({
+            url: Cesium.IonResource.fromAssetId(1)
+        })
+    });
+
+  </script>

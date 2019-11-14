@@ -37,8 +37,8 @@ navigator.geolocation.getCurrentPosition(function(position) {
     };
 
     infoWindow.setPosition(pos);
-    infoWindow.setContent('Location found.');
-    infoWindow.open(map);
+    // infoWindow.setContent('Location found.');
+    // infoWindow.open(map);
     map.setCenter(pos);
     }, function() {
     handleLocationError(true, infoWindow, map.getCenter());
@@ -330,7 +330,7 @@ function setMarkers(map, array) {
     // Origins, anchor positions and coordinates of the marker increase in the X
     // direction to the right and in the Y direction down.
     var image = {
-      url: 'images/wildderness_camping.png',
+      url: '/images/wildderness_camping.png',
       // This marker is 20 pixels wide by 32 pixels high.
       size: new google.maps.Size(32, 36),
       // The origin for this image is (0, 0).

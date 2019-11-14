@@ -26,11 +26,12 @@ module.exports = function(app) {
     })
   });
 
-  app.get('/results', function(req, res) {
-
+  app.get('/results/:id', function(req, res) {
+    db.meteorshowers.findOne({ where: { id: req.params.id } }).then(function(meteorResult) {
       res.render("results", {
-
-      })
+        resultMeteor: meteorResult
+      });
+    });
   })
 
   // Load example page and pass in an example by id
