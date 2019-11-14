@@ -28,44 +28,22 @@
           <div class="section">
             <div class="row">
               <div id="map-canvas"></div>
-              <div class="col s12 center exoFont card eventsCard horizontal">
-                <div class = "card-stacked">
-                
-                  <h1>{{msg}}</h1>
-                  <h3 class="card-title">Examples:</h3>
-                    <ul id="example-list" class="list-group">
-                      {{#each examples}}
-                      <li data-id="{{this.id}}" class="list-group-item">
-                        <a href="example/{{this.id}}">{{this.text}}</a>
-                        <button class="btn btn-danger float-right delete">ｘ</button>
-                      </li>
-                      {{/each}}
-
-                    <p>
-                      Current location <span id="latitude"></span>&deg;,
-                      <span id="longitude"></span>&deg;.
-                    </p>
-                    <p>
-                      It is <span id="summary"></span> with
-                      a temperature of <span id="temp"></span>&deg; F.
-                    </p>
-                    <p>
-                      It will be <span id="forecast"></span>.
-                    </p>
-                    <p>
-                      The Sun will rise at <span id="sunrise"></span> minutes.
-                    </p>
-                    <p>
-                      The Sun will set at <span id="sunset"></span> minutes.
-                    </p>
-                    <p>
-                      The current Moon phase is <span id="moonphase"></span>.
-                    </p>
-                      <button id="geolocate">Check here</button>
-                  </ul>
+              <div class="col s12 center exoFont">
+                <div class="card eventsCard horizontal">
+                  <div class = "card-stacked">
+                    <h5 class="card-title">Placeholder Title</h5>
+                        <p><strong>Current Location</strong>: PLACEHOLDER</p>
+                        <p><strong>Start Date</strong>: PLACEHOLDER</p>
+                        <p><strong>End Date</strong>: PLACEHOLDER</p>
+                        <p><strong>Weather Conditions</strong>: PLACEHOLDER</p>
+                        <p><strong>Temperature</strong>: PLACEHOLDER</p>
+                        <p><strong>Sunrise</strong>: PLACEHOLDER</p>
+                        <p><strong>Sunset</strong>: PLACEHOLDER</p>
+                        <button id="geolocate">Check here</button>
+                  </div>
+                </div>
               </div>
             </div>
-          </div>
           </div>
         </div>
       </div>
