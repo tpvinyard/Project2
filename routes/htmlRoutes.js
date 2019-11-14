@@ -3,6 +3,7 @@ var meteors = require("../public/js/meteor-data.js")
 const moment = require('moment');
 const { Op } = require('sequelize');
 
+
 console.log(meteors);
 
 module.exports = function(app) {
@@ -25,7 +26,7 @@ module.exports = function(app) {
     })
   });
 
-  app.get('/event', function(req, res) {
+  app.get('/results', function(req, res) {
 
       res.render("results", {
 
@@ -45,4 +46,10 @@ module.exports = function(app) {
   app.get("*", function(req, res) {
     res.render("404");
   });
+
+  app.get("/calendar", function(req, res) {
+    res.render("calendar", {
+    })
+  })
+  
 };
