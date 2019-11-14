@@ -27,7 +27,6 @@
   <script src="https://code.jquery.com/jquery.js"></script>
   <script type="text/javascript" src="/js/ExtDraggableObject.js"></script>
   <script type="text/javascript" src="/js/maps.js"></script>
-  <script type="text/javascript" src="/js/caleandar.min.js"></script>
   <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAl7z7WaDJwjwvBjibTRwfoNtFfU1iI-Zo"></script>
   <script>
     google.maps.event.addDomListener(window, 'load', initializeMap);
@@ -41,50 +40,6 @@
   
   {{{body}}}
 
-  <script>
-// Geo Locate
-let lat, lon;
-if ('geolocation' in navigator) {
-  console.log('geolocation available');
-  navigator.geolocation.getCurrentPosition(async position => {
-    let lat, lon, weather, forecast;
-    try {
-      lat = position.coords.latitude;
-      lon = position.coords.longitude;
-      document.getElementById('latitude').textContent = lat.toFixed(2);
-      document.getElementById('longitude').textContent = lon.toFixed(2);
-      const api_url = `weather/${lat},${lon}`;
-      const response = await fetch(api_url);
-      const json = await response.json();
-      forecast = json.weather.daily;
-      weather = json.weather.currently;
-      document.getElementById('summary').textContent = weather.summary;
-      document.getElementById('temp').textContent = weather.temperature;
-      document.getElementById('forecast').textContent = forecast.data[0].summary;
-      document.getElementById('sunrise').textContent = forecast.data[0].sunriseTime;
-      document.getElementById('sunset').textContent = forecast.data[0].sunsetTime;
-      document.getElementById('moonphase').textContent = forecast.data[0].moonPhase;
-
-    } catch (error) {
-      console.log(error);
-    }
-
-    const data = { lat, lon, weather, forecast };
-    const options = {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json'
-      },
-      body: JSON.stringify(data)
-    };
-    const db_response = await fetch('/api', options);
-    const db_json = await db_response.json();
-    console.log(db_json);
-  });
-} else {
-  console.log('geolocation not available');
-}
-  </script>
   <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
   <script src="/js/materialize.js"></script>
   <script src="/js/init.js"></script>
