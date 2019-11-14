@@ -5,6 +5,16 @@
  *
  * Made By MaterializeCSS.com
  */
+
+ .containerCal {
+  overflow: hidden;
+}
+
+.sliding-background {
+  height: auto;
+  width: 5076px;
+}
+
  @import url(../templates/bucket.css);
 
 .eventsCard{

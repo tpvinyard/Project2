@@ -23,12 +23,32 @@
         </ul>
       </div>
 
-      <div id="home">
-        <div class="container float-text exoFont">
+        <div class="carousel1 carousel-slider1 center float-text exoFont">
+          <div class="carousel-item red white-text" href="#one!">
+            <div id="map-canvas"></div>
+          </div>
+          <div class="carousel-item blue white-text" href="#two!">
+              <h5>Placeholder Title</h5>
+                <p><strong>Current Location</strong>: PLACEHOLDER</p>
+                <p><strong>Start Date</strong>: PLACEHOLDER</p>
+                <p><strong>End Date</strong>: PLACEHOLDER</p>
+                <p><strong>Weather Conditions</strong>: PLACEHOLDER</p>
+                <p><strong>Temperature</strong>: PLACEHOLDER</p>
+                <p><strong>Sunrise</strong>: PLACEHOLDER</p>
+                <p><strong>Sunset</strong>: PLACEHOLDER</p>
+                <button id="geolocate">Check here</button>
+            </div>
+          <div class="carousel-item green white-text" href="#three!">
+            <h2>Camping Stuff?</h2>
+            <p class="white-text">This is your third panel</p>
+          </div>
+        </div>
+
+        {{!-- <div class="">
           <div class="section">
             <div class="row">
-              <div id="map-canvas"></div>
-              <div class="col s12 center exoFont">
+              <div class="col m4 card" id="map-canvas"></div>
+              <div class="col m4 center exoFont">
                 <div class="card eventsCard horizontal">
                   <div class = "card-stacked">
                     <h5 class="card-title">Placeholder Title</h5>
@@ -48,9 +68,7 @@
         </div>
       </div>
     </div>
-    <div class="parallax"><img src="/images/resultsbkgrd.jpg" alt="Unsplashed background img 1"></div>
-  </div>
-</div>
+  </div> --}}
 
   <script>
 // Geo Locate
@@ -115,9 +133,25 @@ if ('geolocation' in navigator) {
 } else {
   console.log('geolocation not available');
 }
+
+ 
+  $(document).ready(function(){
+    $('.carousel1').carousel(); 
+    $('.carousel1 .carousel-slider1').carousel({
+    fullWidth: true,
+    indicators: true
+  });
+  });
+
+ 
 </script>
 <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
 <script src="/js/materialize.js"></script>
 <script src="/js/init.js"></script>
 <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 <script src="/js/index.js"></script>
+<style>
+body {
+  background-image: url('/images/resultsbkgrd.jpg');
+}
+</style>
