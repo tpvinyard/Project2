@@ -5,6 +5,8 @@
  *
  * Made By MaterializeCSS.com
  */
+ @import url(../templates/bucket.css);
+
 .eventsCard{
   background:rgba(0, 0, 0, 0.6);
 }

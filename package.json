@@ -15,6 +15,7 @@
     "@fullcalendar/core": "^4.3.1",
     "@fullcalendar/daygrid": "^4.3.0",
     "body-parser": "^1.18.3",
+    "cesium": "^1.63.1",
     "cheerio": "^1.0.0-rc.3",
     "dotenv": "^6.0.0",
     "express": "^4.16.3",
