@@ -26,11 +26,12 @@ module.exports = function(app) {
     })
   });
 
-  app.get('/results', function(req, res) {
-
+  app.get('/results/:id', function(req, res) {
+    db.meteorshowers.findOne({ where: { id: req.params.id } }).then(function(meteorResult) {
       res.render("results", {
-
-      })
+        resultMeteor: meteorResult
+      });
+    });
   })
 
   // Load example page and pass in an example by id
@@ -42,14 +43,20 @@ module.exports = function(app) {
     });
   });
 
+  app.get("/calendar", function(req, res) {
+    db.meteorshowers.findAll({}).then(function(result) {
+      res.render('calendar', {
+        index: result
+      });
+    })
+
+  });
+
   // Render 404 page for any unmatched routes
   app.get("*", function(req, res) {
     res.render("404");
   });
 
-  app.get("/calendar", function(req, res) {
-    res.render("calendar", {
-    })
-  })
+
   
 };
