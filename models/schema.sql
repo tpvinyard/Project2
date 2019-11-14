@@ -9,6 +9,7 @@ CREATE TABLE meteorshowers
 	begin_date DATE NOT NULL,
     end_date DATE NOT NULL,
     max_date DATE,
+    type_of_event varchar (250),
     max_rate_per_hour INT
 );
 
