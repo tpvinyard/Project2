@@ -1,6 +1,7 @@
-<div id="index-banner"class="parallax-container">
-  <div class="section no-pad-bot">
-    <div class="container">  
+<div style = "background-image: url('/images/resultsbkgrd.jpg'); height: 1000px;">
+  <div id="index-banner"class="parallax-container">
+    <div class="section no-pad-bot">
+      <div class="container">  
       
       <div class="dropdown">
         <i class="dropdown-trigger fa fa-bars fa-4x burger-menu" data-target='dropdown'></i>  
@@ -22,6 +23,14 @@
           {{/if}}
         </ul>
       </div>
+            <br><br>
+    <div class= "container">
+      <h1 class="center white-text">Star Scout</h1>
+        <div class="row center">
+        </div>
+    </div>
+  
+      <div class="section"></div>
 
       <div id="home">
         <div class="container float-text exoFont">
@@ -57,13 +66,32 @@
             </div>
           </div>
         </div>
-      </div>
-    </div>
-    <div class="parallax"><img src="/images/resultsbkgrd.jpg" alt="Unsplashed background img 1"></div>
-  </div>
-</div>
+      </div>  
+    </div> 
+  </div>  
+</div> 
 
   <script>
+
+// Carousel
+  $(document).ready(function(){
+    $('.carousel').carousel(); 
+    $('.carousel .carousel-slider').carousel({
+    fullWidth: true,
+    indicators: true
+  });
+  });
+$(document).ready();
+
+ $('i#prev').click(function() {
+    $('.carousel').carousel('prev');
+});
+
+$('i#next').click(function() {
+    $('.carousel').carousel('next');
+});
+
+
 // Geo Locate
 let lat, lon;
 if ('geolocation' in navigator) {
@@ -123,6 +151,7 @@ if ('geolocation' in navigator) {
 } else {
   console.log('geolocation not available');
 }
+ 
 </script>
 <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
 <script src="/js/materialize.js"></script>

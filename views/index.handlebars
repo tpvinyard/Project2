@@ -1,62 +1,73 @@
-<div id="index-banner" class="parallax-container">
+<div id="index-banner introduction" class="parallax-container">
   <div class="section section1 no-pad-bot">
     <div class="container">  
 <!--add hamburger menu for scrollspy here-->
-    
-      <div class="dropdown">
-        <i class="dropdown-trigger fa fa-bars fa-4x burger-menu" data-target='dropdown'></i>  
-        <ul class="dropdown-content" id="dropdown">
-          <li class="nav-item active">
-            <a class="nav-link" href="/">Home <span class="sr-only">(current)</span></a>
-          </li>
-          {{#if loggedIn}}
-          <li class="nav-item">
-            <a class="nav-link" href="/user">Profile</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="/logout">Log Out</a>
-          </li>
-          {{else}}
-          <li class="nav-item">
-            <a class="nav-link" href="/login">Log In</a>
-          </li>
-          {{/if}}
-        </ul>
-      </div>
+    <div class="white-text right col hide-on-small-only m3 l2">
+      <ul class="section table-of-contents">
+        <li><a class="white-text float-text exoFont" href="#introduction">Top of Page</a></li>
+        <li><a class="white-text float-text exoFont" href="#events">Upcoming Events</a></li>
+        <li><a class="white-text float-text exoFont" href="#map">Interactive Map</a></li>
+        <li><a class="white-text float-text exoFont" href="#about">About</a></li>
+      </ul>
+    </div>
+
+    <div class="dropdown">
+      <i class="dropdown-trigger fa fa-bars fa-4x burger-menu" data-target='dropdown'></i>  
+      <ul class="dropdown-content" id="dropdown">
+        <li class="nav-item active">
+          <a class="nav-link" href="/">Home <span class="sr-only">(current)</span></a>
+        </li>
+        {{#if loggedIn}}
+        <li class="nav-item">
+          <a class="nav-link" href="/user">Profile</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/logout">Log Out</a>
+        </li>
+        {{else}}
+        <li class="nav-item">
+          <a class="nav-link" href="/login">Log In</a>
+        </li>
+        {{/if}}
+      </ul>
+    </div>
+   
   <!-- ... -->
       <br><br>
-      <h1 class="center white-text text-lighten-2">Star Scout</h1>
+    <div class= "container">
+      <h1 class="center white-text">Star Scout</h1>
         <div class="row center">
           <h5 class="col s12 light flow-text exoFont">Discover your next trip by chasing the stars</h5>
         </div>
         <div class="row center">
           <a href="/calendar" id="download-button" class="btn-large waves-effect waves-light blue lighten-1 flow-text exoFont">Full Calendar</a>
         </div>
-        <br><br>
+      </div>
+      <br><br>
 
-        <div class="carousel">
-          <a class="carousel-item carouselPic" href= "https://www.wolframalpha.com/examples/science-and-technology/space-and-astronomy/astronomical-events/eclipses/">
+        <div class="carousel1">
+          <a class="carousel-item1 carouselPic" href= "https://www.wolframalpha.com/examples/science-and-technology/space-and-astronomy/astronomical-events/eclipses/">
             <div class="carousel-content white-text flow-text exoFont">
               <h2>Eclipses</h2>
             </div>
             <img src="/images/eclipse.jpg" >
           </a>
           
-          <a class="carousel-item carouselPic" href = "https://www.wolframalpha.com/examples/science-and-technology/space-and-astronomy/astronomical-events/sunrise-and-sunset/">
+          <a class="carousel-item1 carouselPic" href = "https://www.wolframalpha.com/examples/science-and-technology/space-and-astronomy/astronomical-events/sunrise-and-sunset/">
               <div class="carousel-content white-text flow-text exoFont">
                 <h2>Sunrise/Sunsets</h2>
               </div>
             <img src="/images/sunset.jpg">
           </a>
             
-          <a class="carousel-item carouselPic" href= 'https://www.wolframalpha.com/examples/science-and-technology/space-and-astronomy/astronomical-events/lunar-phases/'>
+          <a class="carousel-item1 carouselPic" href= 'https://www.wolframalpha.com/examples/science-and-technology/space-and-astronomy/astronomical-events/lunar-phases/'>
             <div class="carousel-content white-text flow-text exoFont">
               <h2>Lunar Phases</h2>
             </div>
             <img src="/images/FullMoon.jpg">
           </a>
             
-          <a class="carousel-item carouselPic" href= "https://www.wolframalpha.com/examples/science-and-technology/space-and-astronomy/astronomical-events/meteor-showers/">
+          <a class="carousel-item1 carouselPic" href= "https://www.wolframalpha.com/examples/science-and-technology/space-and-astronomy/astronomical-events/meteor-showers/">
             <div class="carousel-content white-text flow-text exoFont">
               <h2>Meteor Showers</h2>
             </div>
@@ -68,7 +79,14 @@
     <div class="parallax"><img src="/images/background1.jpg" alt="Unsplashed background img 1"></div>
   </div>
 
-  <div class="parallax-container valign-wrapper">
+
+  <div class="section black ">
+    <div class="row center">
+      <div class="col s12 exoFont"></div>
+    </div>
+  </div>  
+
+  <div id = "events" class="parallax-container valign-wrapper">
     <div class="section no-pad-bot">
       <div class="container">
         <div class="section">
@@ -78,7 +96,7 @@
               {{#each index}}
                 <div class="card eventsCard horizontal">
                   <div class="card-image">
-                    <img src="https://spaceholder.cc/250x350"> <!--when we get types into SQL set photos via unsplash to match type of event-->
+                    <img src="https://picsum.photos/id/1042/250/350"> <!--when we get types into SQL set photos via unsplash to match type of event-->
                   </div>
                   <div class="card-stacked">
                     <div class="card-content">
@@ -100,24 +118,30 @@
       </div>
       <div class="parallax"><img src="/images/background2.jpg" alt="Unsplashed background img 2"></div>
     </div>
-  </div>
 
-  <div class="section white">
-    <div class="section row container">
-      <div class="col s12 center">
-        <h3><i class="mdi-content-send flow-text exoFont"></i></h3>
-        <h4>About</h4>
-        <p class="left-align light flow-text exoFont">Star Scout is a site created for the purpose of discovering upcoming astrological events, where the least light pollution is, and the best local camping areas for viewing. You can view our general calendar of events or select specific events from the home page carousel. You won't forget your plans because once you've chosen a campsite you can save the event to your google calendar!</p>
-      </div>
-    </div>
-  </div>
+  <div id = "map" class="black valign-wrapper">
+    <div class= "container">
+      <div class="section no-pad-bot">
+        <div id="cesiumContainer" class="fullSize"></div>
+        <div id="toolbar"></div>
 
-  <div class="parallax-container valign-wrapper">
+
+<div id = "about" class="parallax-container valign-wrapper">
+  <div class= "container">
     <div class="section no-pad-bot">
-          <div id="cesiumContainer" class="fullSize"></div>
-          <div id="toolbar"></div>
+      <div class="row center">
+        <div class="col s12 upcoming exofont flow-text">
+          <h4>About</h4>
+          <p class="left-align light flow-text exoFont">Star Scout is a site created for the purpose of discovering upcoming astrological events, where the least light pollution is, and the best local camping areas for viewing. You can view our general calendar of events or select specific events from the home page carousel. You won't forget your plans because once you've chosen a campsite you can save the event to your google calendar!
+          <br><br>
+          Just for fun, check out the interactive globe reflecting light pollution below!
+          </p>
+        </div>
+      </div>
+      <div class="parallax"><img src="/images/background3.jpg" alt="Unsplashed background img 2"></div>
     </div>
   </div>
+</div>
 
   <footer class="page-footer blue darken-4">
     <div class="container">
@@ -155,13 +179,24 @@
     </div>
   </footer>
 
-    <script>
-      Cesium.Ion.defaultAccessToken = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJqdGkiOiI1Y2MwNTQxNC0zZGFjLTRiY2UtOGU0Yy0wNGJjZmFlNWRmNGMiLCJpZCI6MTgzNjgsInNjb3BlcyI6WyJhc3IiLCJnYyJdLCJpYXQiOjE1NzM3MDU3NDZ9.V8omh_JjiRHBtHixS03SPgH9i-KsmNo346USJzezqKc';
+<script>
+ 
+  $(document).ready(function(){
+    $('.scrollspy').scrollSpy();
+  });
 
-    var viewer = new Cesium.Viewer('cesiumContainer',{
-        terrainProvider : new Cesium.CesiumTerrainProvider({
-            url: Cesium.IonResource.fromAssetId(1)
-        })
+
+  $(document).ready(function(){
+    $('.carousel').carousel({
+      padding: 200    
     });
+      
+  autoplay();
+  
+  function autoplay() {
+    $('.carousel').carousel('next');
+    setTimeout(autoplay, 5000);
+}
+  });
 
-  </script>
+</script>
