@@ -1,4 +1,5 @@
-<div id="index-banner" class="parallax-container">
+<div style = "background-image: url('/images/testing.jpg'); height: 100%;">
+  <div id="index-banner" class="parallax-container">
     <div class="section section1 no-pad-bot">
       <div class="container">  
 <!--add hamburger menu for scrollspy here-->
@@ -30,16 +31,15 @@
       <div class="card mt-4" id="innerprofile">
         <div class="card-body">
 
-          <h5 class="card-title" id="welcomeback"><strong>Welcome back StarScout.</strong></h5>
-          
-          <h2 id="innerprofile">
-            Hi: {{user.nickname}}
-          </h2>
+          <h5 class="card-title center" id="welcomeback"><strong>Welcome back to StarScout!</strong></h5>
+          <h2 id="innerprofile">Hey {{user.nickname}}</h2>
+
+          <h4>Your Favorites:</h4>
 
           {{!-- <div id="innerprofile"> --}}
             {{!-- <img src="{{{user.picture}}}"/> --}}
           {{!-- </div> --}}
-
+          <h4>Add new event:</h4>
           <img id="myImg" src="https://lorempixel.com/250/350/nature" height="200px" width="100px">
           <input type='file' />
 
@@ -48,6 +48,7 @@
       </div>
       <a href="/">← Home</a>
     </div>
+   </div>
   </div>
 </div>
 
