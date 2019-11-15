@@ -32,34 +32,36 @@
   
       <div class="section"></div>
 
-      <div class="section">
-        <div id="carouselFirst" class="carousel carousel-slider">
-            <div class="col s12 center">
-              <div class="carousel-fixed-item center">
-              {{!-- <div class= "row slider-center">
-                <i class="float-text white-text exoFont fa fa-arrow-right right" id= "next" style= "font-size: 60px;"></i>
+      <div id="home">
+        <div class="container float-text exoFont">
+          <div class="section">
+            <div class="row">
+              <h3 class="center">Dark Sky Map</h3>
+              <div id="map-canvas"></div>
+              <div class="center" style="margin-top: 10px;">
+                <img src='/images/lightlegend.jpg'>
               </div>
-              <div class= "row slider-center">
-                <i class="float-text white-text exoFont fa fa-arrow-left left" id= "prev" style= "font-size: 60px;"></i>
-              </div> --}}
-            </div>
-              <div class="carousel-item red white-text" href="#one!">
-                <div id="map-canvas"></div>
-              </div>
-              <div class="carousel-item blue white-text" href="#two!">
-                <h5>Placeholder Title</h5>
-                  <p><strong>Current Location</strong>: PLACEHOLDER</p>
-                  <p><strong>Start Date</strong>: PLACEHOLDER</p>
-                  <p><strong>End Date</strong>: PLACEHOLDER</p>
-                  <p><strong>Weather Conditions</strong>: PLACEHOLDER</p>
-                  <p><strong>Temperature</strong>: PLACEHOLDER</p>
-                  <p><strong>Sunrise</strong>: PLACEHOLDER</p>
-                  <p><strong>Sunset</strong>: PLACEHOLDER</p>
-                  <button id="geolocate">Check here</button>
-              </div>
-              <div class="carousel-item green white-text" href="#three!">
-                <h2>Camping Stuff?</h2>
-                <p class="white-text">This is your third panel</p>
+
+              <div class="col s12 center exoFont">
+                <div class="card eventsCard horizontal">
+                  <div class = "card-stacked">
+                    <div class="card-content">
+                    <h5 class="card-title" id='event-name'>{{resultMeteor.shower_name}}</h5>
+                        <p id='latlon'></p>
+                        <p id='start-date'>Start Date: {{resultMeteor.begin_date}}</p>
+                        <p id='end-date'>End Date: {{resultMeteor.end_date}}</p>
+                        <p id='max-date'>Maximum Date: {{resultMeteor.max_date}}</p>
+                        <p id='max-rate'>Peak Meteors Per Hour: {{resultMeteor.max_rate_per_hour}}</p>
+                        <p id='summary'></p>
+                        <p id='temp'></p>
+                        <p id='sunrise'></p>
+                        <p id='sunset'></p>
+                    </div>
+                    <div class="card-action">
+                        <button id="geolocate">Check here</button>
+                    </div>    
+                  </div>
+                </div>
               </div>
             </div>
           </div>
