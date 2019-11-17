@@ -83,7 +83,7 @@ module.exports = function(app) {
 
   // geolocation data
   app.post('/api', (request, response) => {
-    console.log('succesful request');
+    // console.log('succesful request');
     // console.log(request.body);
     const data = request.body;
     const timestamp = Date.now();
@@ -93,12 +93,12 @@ module.exports = function(app) {
   });
 
   app.get('/weather/:latlon', async (request, response) => {
-    console.log(request.params);
+    // console.log(request.params);
     const latlon = request.params.latlon.split(',');
-    console.log(latlon);
+    // console.log(latlon);
     const lat = latlon[0];
     const lon = latlon[1];
-    console.log(lat, lon);
+    // console.log(lat, lon);
     // const api_key = process.env.API_KEY;
     const weather_url = `https://api.darksky.net/forecast/ef516e4b2e594d932c47badeee23c8bb/${lat},${lon}/?units=us`;
     const weather_response = await fetch(weather_url);
