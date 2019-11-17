@@ -34,23 +34,14 @@ module.exports = function(app) {
     });
   })
 
-  app.get('/calendar', async function(req, res) {
-    await db.meteorshowers.destroy({ where: {}, truncate: true
-    });
-    await db.meteorshowers.bulkCreate(meteors);
-    let thirtyDaysFromNow = moment().add(30, 'days').format('YYYY-MM-DD')
-    console.log(thirtyDaysFromNow);
-    await db.meteorshowers.findAll({ where: {
-      begin_date: {
-        [Op.lte]: thirtyDaysFromNow,
-        [Op.gte]: moment().format('YYYY-MM-DD')
-      }
-    }}).then(function(result) {
-    res.render("calendar", {
-      index: result
+  app.get("/calendar", function(req, res) {
+    db.meteorshowers.findAll({}).then(function(result) {
+      res.render('calendar', {
+        index: result
+      });
     })
-  })
-});
+
+  });
 
   // Load example page and pass in an example by id
   app.get("/example/:id", function(req, res) {
