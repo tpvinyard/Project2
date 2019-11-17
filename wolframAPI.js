@@ -10,7 +10,7 @@
 
 // Preserve future compatibility - The basic principle is to handle elements you know about, but ignore ones that you don't. Similarly for attributes—elements may acquire new attributes over time, although this is generally quite easy for client programs to accommodate by simply ignoring them.
 // So far we have been dealing with the query function. There is another function in the API called validatequery. This is a specialized function that performs only the initial parsing phase of Wolfram|Alpha processing. Its purpose is to quickly determine whether Wolfram|Alpha can make sense of a given input, bypassing the more time-consuming stages of fully analyzing the input and preparing results.
-// Here is a sample URL that calls the validatequery function:
+// Here is a sample URL that calls the validate query function:
 //  http://api.wolframalpha.com/v2/validatequery?appid=DEMO&input=pi
 
 // Error results will have an <error> element that gives a code and short description of the error: http://api.wolframalpha.com/v2/query?input=mortgage
@@ -24,7 +24,12 @@
 
 
 
+// invoke and call 
 
+// 
+
+
+modlue.exports= {
 
                 /**
                  * @module wolfram-alpha-api
@@ -183,7 +188,7 @@ function formatResults(params) {
       switch (output) {
         case 'json':
           try {
-console.log("inside formatResults" + data);
+console.log("inside formatResults", data);
             resolve(JSON.parse(data).queryresult);
           } catch (e) {
             reject(
@@ -267,9 +272,9 @@ class WolframAlphaAPI {
                                      * waApi.getShort().then(console.log, console.error);
                                      */
         getShort(input) {
-        const baseUrl = `${baseApiUrl}v1/result?appid=${this.appid}`;
-    console.log("inside getShort" + baseURL, input);
-        return createApiParams(baseUrl, input)
+        const baseUrl = `${baseApiUrl}v1/result?appid${this.appid}`;
+    console.log("inside getShort " + baseURL+ "  input:  ", + input);
+        return createApiParams(baseUrl, input, 'json')
           .then(fetchResults)
           .then(formatResults);
       }
@@ -355,19 +360,32 @@ class WolframAlphaAPI {
                                      * const WolframAlphaAPI = require('wolfram-alpha-api');
                                      * const waApi = WolframAlphaAPI('DEMO-APPID');
                                      */
-                  function initializeClass(appid) {
-                    return new WolframAlphaAPI(appid);
-                  }                 
-                  
-                  
-                  module.exports = initializeClass;
+  function initializeClass(appid) {
+    return new WolframAlphaAPI(appid);
+  }                 
+       
+  
+ 
+  // invoke and call 
+// const appid = 'DEMO';
+// let iClass= initializeClass(appid);
+// const input = "LA to new york";
+// const https = require('https');
+// const querystring = 'v2/query?appid=DEMO&input=population%20of%20france';
+// const baseUrl = 'https://api.wolframalpha.com/';
+// const createApiParamsRejectMsg = 'method only receives string or object';
+// const output = 'json';
+// gsresults = iclass.getShort(input); 
+// console.log("inside ssswolframAPI.js");
 
 
-// invoke and call 
-const querystring = 'v2/query?appid=DEMO&input=population%20of%20france';
-const input = "LA to new york";
-waAPI.getShort(input);
-console.log("completed");
+
+                  
+ // put this back in  module.exports = initializeClass;
+}
+
+
+
 
                   
                   
