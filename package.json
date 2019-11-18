@@ -12,6 +12,7 @@
   "license": "ISC",
   "dependencies": {
     "@auth0/auth0-spa-js": "^1.5.0",
+    "@dguttman/wolfram-alpha-api": "^1.0.0-rc.1",
     "@fullcalendar/core": "^4.3.1",
     "@fullcalendar/daygrid": "^4.3.0",
     "axios": "^0.19.0",

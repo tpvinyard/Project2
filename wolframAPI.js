@@ -27,12 +27,72 @@
 // invoke and call 
 
 // 
+// // https://products.wolframalpha.com/api/libraries/javascript/
+// // 1 npm i -g npm 
+// // 2 Next, import the class, and instantiate it with your 'AppID':
+
+// var WolframAlphaAPI = require('./ssswolframAPI.js');
+// var waApi = WolframAlphaAPI('DEMO');
+
+// //
+// // 3
+// waApi.getFull({
+//     input: 'eclipse',
+//     output: 'json',
+//   }).then(console.log).catch(console.error)
 
 
-modlue.exports= {
+  
+
+// waApi.getSpoken("when is labor day in 2020")
+//   .then(console.log).catch(console.error);
+
+
+var waApi = WolframAlaphaAPI('DEMO');
+
+
+
+
+var axios = require("axios");
+var query= encodeURIComponent("is there an eclipse today");
+var queryURL = "http://api.wolframalpha.com/v2/query?appid=DEMO&i=" + query+ "&output=json";
+console.log("query url: "+queryURL);
+axios.get(queryURL)
+.then(function(res){
+    console.log("JSON: ",res);
+    console.log("data: ",res.data.queryresult);
+    console.log(" status :" + res.status, " statusText: " + res.statusText);
+    
+})
+.catch(function(err){
+    console.log(err)
+})
+
+
+console.log('about to initialize from wolfrmaTest');
+let appid = 'DEMO';
+initializeClass('DEMO');
+
+
+
+console.log("inside ssswolframAPI.js");
+
+
+const https = require('https');
+const querystring = 'v2/query?appid=DEMO&input=population%20of%20france';
+const baseUrl = 'https://api.wolframalpha.com/';
+const createApiParamsRejectMsg = 'method only receives string or object';
+const output = 'json';
+
+console.log('about to call wolframAPI');
+getSpoken('is there an eclipse today');
+
+
+                  
+ // put this back in  module.exports = initializeClass;
 
                 /**
-                 * @module wolfram-alpha-api
+                * -module wolfram-alpha-api
                 /**
   const https = require('https');
   const querystring = 'v2/query?appid=DEMO&input=population%20of%20france';
@@ -45,32 +105,32 @@ modlue.exports= {
                  * 'string' and 'xml' are both strings,
                  * 'json' is an Object (a result of JSON.parse), and
                  * 'image' is a string of a "Data URI"
-                 * @typedef OutputFormat
-                 * @property {'string'|'json'|'image'|'xml'} output
+                 * !typedef OutputFormat
+                 * !property {'string'|'json'|'image'|'xml'} output
                  */
                 /**
-                 * @typedef FetchParams
-                 * @property {Object} params
-                 * @property {string} params.url - full URL of api call
-                 * @property {OutputFormat} params.output - which OutputFormat do we want?
-                 * @example {url: 'https://api.wolframalpha.com/v1/result?appid=DEMO&i=2%2B2', output: 'string'}
+                 * !typedef FetchParams
+                 * !property {Object} params
+                 * !property {string} params.url - full URL of api call
+                 * !property {OutputFormat} params.output - which OutputFormat do we want?
+                 * !example {url: 'https://api.wolframalpha.com/v1/result?appid=DEMO&i=2%2B2', output: 'string'}
                  */
                 /**
-                 * @typedef FormatParams
-                 * @property {Object} params
-                 * @property {string} params.data - data returned by fetchResults
-                 * @property {OutputFormat} params.output - which OutputFormat do we want?
-                 * @property {integer} statusCode - HTTP status code of fetchResults
-                 * @property {string} contentType - HTTP content-type header from fetchResults
-                 * @example {data: '4', output: 'string', statusCode: 200, contentType: 'text/plain;charset=utf-8'}
+                 * !typedef FormatParams
+                 * !property {Object} params
+                 * !property {string} params.data - data returned by fetchResults
+                 * !property {OutputFormat} params.output - which OutputFormat do we want?
+                 * !property {integer} statusCode - HTTP status code of fetchResults
+                 * !property {string} contentType - HTTP content-type header from fetchResults
+                 * !example {data: '4', output: 'string', statusCode: 200, contentType: 'text/plain;charset=utf-8'}
                  */
                 /**
                  * Build a URL call from a baseUrl and input; specify an OutputFormat (for fetchResults).
-                 * @param {string} baseUrl - base URL of API we are trying to call
-                 * @param {(string|Object)} input - string of query, or object of parameters
-                 * @param {OutputFormat} [output=string] - which OutputFormat we want
-                 * @returns {Promise<FetchParams>}
-                 * @example
+                 * !param {string} baseUrl - base URL of API we are trying to call
+                 * !param {(string|Object)} input - string of query, or object of parameters
+                 * !param {OutputFormat} [output=string] - which OutputFormat we want
+                 * !returns {Promise<FetchParams>}
+                 * !example
                  * // resolves {url: 'https://api.wolframalpha.com/v1/result?appid=DEMO&i=2%2B2', output: 'string'}
                  * createApiParams('https://api.wolframalpha.com/v1/result?appid=DEMO', '2+2', 'string')
                  * // resolves {
@@ -101,9 +161,9 @@ function createApiParams(baseUrl, input, output) {
   }
                                 /**
                                  * Return a Promise that downloads params.url, and resolves the results (for formatResults).
-                                 * @param {FetchParams} params
-                                 * @returns {Promise<FormatParams>}
-                                 * @example
+                                 * !param {FetchParams} params
+                                 * !returns {Promise<FormatParams>}
+                                 * !example
                                  * // resolves { data: '4', output: 'string', statusCode: 200,
                                  * //            contentType: 'text/plain;charset=utf-8' }
                                  * fetchResults({
@@ -157,9 +217,9 @@ function fetchResults(params) {
                                     /**
                                      * Return a Promise that RESOLVES A FORMATTED form of params.data, as specified by
                                      * params.output, params.statusCode, and params.contentType
-                                     * @param {FormatParams} params
-                                     * @returns {Promise<(Object|string)>}
-                                     * @example
+                                     * !param {FormatParams} params
+                                     * !returns {Promise<(Object|string)>}
+                                     * !example
                                      * // resolves "4"
                                      * formatResults({
                                      *   data: '4', output: 'string', statusCode: 200,
@@ -217,11 +277,11 @@ console.log("inside formatResults", data);
                                    */
 class WolframAlphaAPI {
                                     /**
-                                     * You may get your 'appid' at {@link https://developer.wolframalpha.com/portal/myapps/}.
+                                     * You may get your 'appid' at {!link https://developer.wolframalpha.com/portal/myapps/}.
                                      * Remember, this appID must be kept secret.
-                                     * @param {string} appid - the appid, must be non-empty string.
-                                     * @throws TypeError
-                                     * @example
+                                     * !param {string} appid - the appid, must be non-empty string.
+                                     * !throws TypeError
+                                     * !example
                                      * const WolframAlphaAPI = require('wolfram-alpha-api');
                                      * const waApi = WolframAlphaAPI('DEMO-APPID');
                                      */
@@ -235,10 +295,10 @@ class WolframAlphaAPI {
                                      * Takes 'input' (which is either a string, or an object of parameters), runs it through
                                      * the Wolfram|Alpha Simple API, and returns a Promise that
                                      * resolves a string of a "Data URI", or rejects if there's an error.
-                                     * @param {string|Object} input - string or object of parameters
-                                     * @returns {Promise<DataURI>}
-                                     * @see https://products.wolframalpha.com/simple-api/documentation/
-                                     * @example
+                                     * !param {string|Object} input - string or object of parameters
+                                     * !returns {Promise<DataURI>}
+                                     * !see https://products.wolframalpha.com/simple-api/documentation/
+                                     * !example
                                      * // "data:image/gif;base64,R0lGODlhHAK5AvcAAAAAAAAEAAgICAgMCBAQEBAUEBsdGzE0MTk8OTk4OS0uLSAkI...
                                      * waApi.getSimple('2+2').then(console.log, console.error);
                                      * // "data:image/gif;base64,R0lGODlhHAJNBfcAAAAAAAAEAAgICAgMCBAQEBAUEBgYGBgcGCAgICAkICksKSkoK...
@@ -258,10 +318,10 @@ class WolframAlphaAPI {
                                      * Takes 'input' (which is either a string, or an object of parameters), runs it through
                                      * the Wolfram|Alpha Short Answers API, and returns a Promise that
                                      * resolves a string of results, or rejects if there's an error.
-                                     * @param {string|Object} input - string or object of parameters
-                                     * @returns {Promise<string>}
-                                     * @see https://products.wolframalpha.com/short-answers-api/documentation/
-                                     * @example
+                                     * !param {string|Object} input - string or object of parameters
+                                     * !returns {Promise<string>}
+                                     * !see https://products.wolframalpha.com/short-answers-api/documentation/
+                                     * !example
                                      * // "4"
                                      * waApi.getShort('2+2').then(console.log, console.error);
                                      * // "3966 kilometers"
@@ -282,10 +342,10 @@ class WolframAlphaAPI {
                                        * Takes 'input' (which is either a string, or an object of parameters), runs it through
                                        * the Wolfram|Alpha Spoken Results API, and returns a Promise that
                                        * resolves a string of results, or rejects if there's an error.
-                                       * @param {string|Object} input - string or object of parameters
-                                       * @returns {Promise<string>}
-                                       * @see https://products.wolframalpha.com/spoken-results-api/documentation/
-                                       * @example
+                                       * !param {string|Object} input - string or object of parameters
+                                       * !returns {Promise<string>}
+                                       * !see https://products.wolframalpha.com/spoken-results-api/documentation/
+                                       * !example
                                        * // "The answer is 4"
                                        * waApi.getSpoken('2+2').then(console.log, console.error);
                                        * // "The answer is about 3966 kilometers"
@@ -305,10 +365,10 @@ class WolframAlphaAPI {
                                      * Takes 'input' (which is either a string, or an object of parameters), runs it through
                                      * the Wolfram|Alpha Full Results API, and returns a Promise that
                                      * either resolves an Object or a string of XML, or rejects if there's an error.
-                                     * @param {string|Object} input - string or object of parameters
-                                     * @returns {Promise<(Object|string)>}
-                                     * @see https://products.wolframalpha.com/api/documentation/
-                                     * @example
+                                     * !param {string|Object} input - string or object of parameters
+                                     * !returns {Promise<(Object|string)>}
+                                     * !see https://products.wolframalpha.com/api/documentation/
+                                     * !example
                                      * // {success: true, error: false, numpods: 6, datatypes: 'Math', timedout: '', timing: 1.08 ...
                                      * waApi.getFull('2+2').then(console.log, console.error);
                                      * // "<queryresult success='true' error='false' numpods='7' ...
@@ -352,11 +412,11 @@ class WolframAlphaAPI {
         }
       }
                                     /**
-                                     * You may get your 'appid' at {@link https://developer.wolframalpha.com/portal/myapps/}.
+                                     * You may get your 'appid' at {!link https://developer.wolframalpha.com/portal/myapps/}.
                                      * Remember, this appID must be kept secret.
-                                     * @param {string} appid - the appid, must be non-empty string.
-                                     * @throws TypeError
-                                     * @example
+                                     * !param {string} appid - the appid, must be non-empty string.
+                                     * !throws TypeError
+                                     * !example
                                      * const WolframAlphaAPI = require('wolfram-alpha-api');
                                      * const waApi = WolframAlphaAPI('DEMO-APPID');
                                      */
@@ -364,25 +424,10 @@ class WolframAlphaAPI {
     return new WolframAlphaAPI(appid);
   }                 
        
-  
+
  
-  // invoke and call 
-// const appid = 'DEMO';
-// let iClass= initializeClass(appid);
-// const input = "LA to new york";
-// const https = require('https');
-// const querystring = 'v2/query?appid=DEMO&input=population%20of%20france';
-// const baseUrl = 'https://api.wolframalpha.com/';
-// const createApiParamsRejectMsg = 'method only receives string or object';
-// const output = 'json';
-// gsresults = iclass.getShort(input); 
-// console.log("inside ssswolframAPI.js");
+ 
 
-
-
-                  
- // put this back in  module.exports = initializeClass;
-}
 
 
 

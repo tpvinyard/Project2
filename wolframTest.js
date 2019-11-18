@@ -19,7 +19,11 @@
 // waApi.getSpoken("when is labor day in 2020")
 //   .then(console.log).catch(console.error);
 
- 
+const WolframAlphaAPI = require('@dguttman/wolfram-alpha-api');
+const waApi = WolframAlphaAPI('G28HUV-QJ487E38KH');
+
+
+
 
 
 var axios = require("axios");
@@ -30,9 +34,27 @@ axios.get(queryURL)
 .then(function(res){
     console.log("JSON: ",res);
     console.log("data: ",res.data.queryresult);
-    console.log(" status :" + res.status, " statusText: " + res.statusText);
+    console.log(" status :" + res.status, " statusText: " + res.status.statusText);
     
 })
 .catch(function(err){
     console.log(err)
 })
+
+
+
+
+console.log('about to call wolframAPI');
+waApi.getSpoken('is there an eclipse today')
+    .then(function(result){
+        console.log(result)})
+
+        .catch(function(err){
+            console.log(err);
+                             });
+                           
+    
+
+
+
+
