@@ -1,7 +1,7 @@
 {
   "development": {
     "username": "root",
-    "password": "Giraffe730*",
+    "password": "password",
     "database": "starsdb",
     "host": "localhost",
     "dialect": "mysql"
