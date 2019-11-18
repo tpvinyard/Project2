@@ -1,3 +1,5 @@
+$(document).ready();
+
 (function($){
   $(function(){
 
@@ -8,7 +10,8 @@
 })(jQuery); // end of jQuery name space
 
   document.addEventListener('DOMContentLoaded', function() {
-    var elems = document.querySelectorAll('.carousel');
+    var elems = document.querySelectorAll('.carousel');  
+    $('.carousel').carousel();
   });
 
   // Or with jQuery
@@ -28,4 +31,6 @@ $(document).ready(function(){
       }        
   });
   });
+
+
 
