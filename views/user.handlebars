@@ -1,29 +1,32 @@
 <div style = "background-image: url('/images/testing.jpg'); height: 100%;">
-  <div id="index-banner" class="parallax-container">
-    <div class="section section1 no-pad-bot">
-      <div class="container">  
+ <div id="index-banner" class="parallax-container">
+ 
 <!--add hamburger menu for scrollspy here-->
     
-    <div class="dropdown">
-        <i class="dropdown-trigger fa fa-bars fa-4x burger-menu" data-target='dropdown'></i>  
-      <ul class="dropdown-content" id="dropdown">
-        <li class="nav-item active">
-          <a class="nav-link" href="/">Home <span class="sr-only">(current)</span></a>
-        </li>
-        {{#if loggedIn}}
-        <li class="nav-item">
-          <a class="nav-link" href="/user">Profile</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="/logout">Log Out</a>
-        </li>
-        {{else}}
-        <li class="nav-item">
-          <a class="nav-link" href="/login">Log In</a>
-        </li>
-        {{/if}}
-      </ul>
-    </div>
+    <ul id="slide-out" class="black sidenav white-text exoFont flow-text">
+      <li>
+        <div class="user-view">
+          <div class="background"></div>
+        <div class="nav-item active">
+          <a class="nav-link sidenav-close" href="/">Home <span class="sr-only">(current)</span></a>
+        </div>
+          {{#if loggedIn}}
+          <div class= "nav-item">
+          <a href="/user" class="sidenav-close nav-link white-text exoFont flow-text">Your Profile</a>
+          </div>
+          <br>
+          <a href="/logout" class="sidenav-close nav-link white-text exoFont flow-text">Log Out</a>
+          {{else}}
+          <a href="/login" class="sidenav-close nav-link white-text exoFont flow-text">Log In</a>
+          {{/if}}
+        </div>
+      </li>    
+      <li><div class="divider white-text exoFont flow-text"></div></li>
+    </ul>
+    <a href="#" data-target="slide-out" class="sidenav-trigger"><i class="fa fa-bars fa-4x burger-menu material-icons white-text exoFont flow-text"></i></a>
+
+  <div class="section section1 no-pad-bot">
+    <div class="container">  
 
 <div class="container">
   <div class="row">

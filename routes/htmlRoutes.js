@@ -36,7 +36,6 @@ module.exports = function(app) {
       // });
 
 
-
       res.render("results", {
         resultMeteor: meteorResult
       });

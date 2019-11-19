@@ -1,77 +1,80 @@
 <div style = "background-image: url('/images/testing.jpg'); height: 100%;">      
 
 <!--add hamburger menu for scrollspy here-->
-<div id="index-banner" class="parallax-container">
+  <div id="index-banner" class="parallax-container">
 
-  <div class="dropdown">
-    <i class="dropdown-trigger fa fa-bars fa-4x burger-menu" data-target='dropdown'></i>  
-    <ul class="dropdown-content" id="dropdown">
-      <li class="nav-item active">
-        <a class="nav-link" href="/">Home <span class="sr-only">(current)</span></a>
+    <ul id="slide-out" class="black sidenav white-text exoFont flow-text">
+      <li>
+        <div class="user-view">
+          <div class="background"></div>
+        <div class="nav-item active">
+          <a class="nav-link sidenav-close" href="/">Home <span class="sr-only">(current)</span></a>
+        </div>
+        {{#if loggedIn}}
+        <div class= "nav-item">
+          <a href="/user" class="sidenav-close nav-link white-text exoFont flow-text">Your Profile</a>
+        </div>
+        <br>
+        <a href="/logout" class="sidenav-close nav-link white-text exoFont flow-text">Log Out</a>
+        {{else}}
+        <a href="/login" class="sidenav-close nav-link white-text exoFont flow-text">Log In</a>
+        {{/if}}
+        </div>
+      </li>    
+      <li>
+        <div class="divider white-text exoFont flow-text"></div>
       </li>
-      {{#if loggedIn}}
-      <li class="nav-item">
-        <a class="nav-link" href="/user">Profile</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="/logout">Log Out</a>
-      </li>
-      {{else}}
-      <li class="nav-item">
-        <a class="nav-link" href="/login">Log In</a>
-      </li>
-      {{/if}}
     </ul>
-  </div>
+      <a href="#" data-target="slide-out" class="sidenav-trigger"><i class="fa fa-bars fa-4x burger-menu material-icons white-text exoFont flow-text"></i></a>
 
-  <div class="section section1 no-pad-bot">
-    <div class="container">  
-      
-            <br><br>
-    <div class= "container">
-      <h1 class="center white-text">Star Scout</h1>
-    </div>
-      <div id="home">
-        <div class="container float-text exoFont">
-          <div class="section">
-            <div class="row">
-              <h3 class="center">Dark Sky Map</h3>
-              <div id="map-canvas"></div>
-              <div class="center" style="margin-top: 10px;">
-                <img src='/images/lightlegend.jpg'>
-              </div>
+    <div class="section section1 no-pad-bot">
+      <div class="container">  
+        
+      <br><br>
+      <div class= "container">
+        <h1 class="center white-text">Star Scout</h1>
+      </div>
+        <div id="home">
+          <div class="container flow-text exoFont">
+            <div class="section">
+              <div class="row">
+                <h3 class="center">Dark Sky Map</h3>
+                <div id="map-canvas"></div>
+                <div class="center" style="margin-top: 10px;">
+                  <img src='/images/lightlegend.jpg'>
+                </div>
 
-              <div class="col s12 center exoFont">
-                <div class="card eventsCard horizontal">
-                  <div class = "card-stacked">
-                    <div class="card-content">
-                    <h5 class="card-title" id='event-name'>{{resultMeteor.shower_name}}</h5>
-                        <p id='latlon'></p>
-                        <p id='start-date'>Start Date: {{resultMeteor.begin_date}}</p>
-                        <p id='end-date'>End Date: {{resultMeteor.end_date}}</p>
-                        <p id='max-date'>Maximum Date: {{resultMeteor.max_date}}</p>
-                        <p id='max-rate'>Peak Meteors Per Hour: {{resultMeteor.max_rate_per_hour}}</p>
-                        <p id='summary'></p>
-                        <p id='temp'></p>
-                        <p id='sunrise'></p>
-                        <p id='sunset'></p>
+                <div class="col s12 center flow-text exoFont">
+                  <div class="card eventsCard horizontal">
+                    <div class = "card-stacked">
+                      <div class="card-content">
+                      <h5 class="card-title" id='event-name'>{{resultMeteor.shower_name}}</h5>
+                          <p id='latlon'></p>
+                          <p id='start-date'>Start Date: {{resultMeteor.begin_date}}</p>
+                          <p id='end-date'>End Date: {{resultMeteor.end_date}}</p>
+                          <p id='max-date'>Maximum Date: {{resultMeteor.max_date}}</p>
+                          <p id='max-rate'>Peak Meteors Per Hour: {{resultMeteor.max_rate_per_hour}}</p>
+                          <p id='summary'></p>
+                          <p id='temp'></p>
+                          <p id='sunrise'></p>
+                          <p id='sunset'></p>
+                      </div>
+
+                      <div class="row flow-text exoFont form-group form-inline" id="searchlocation"><span id="error"></span>
+                          <input type="text" class="form-control" placeholder="Search..." id="location">
+                          <button id="searchlocation" class="btn btn-primary">Search</button>
+                      </div>  
+
                     </div>
-
-                    <div class="row form-group form-inline" id="searchlocation"><span id="error"></span>
-                        <input type="text" class="form-control" placeholder="Search..." id="location">
-                        <button id="searchlocation" class="btn btn-primary">Search</button>
-                    </div>  
-
                   </div>
                 </div>
               </div>
             </div>
           </div>
-        </div>
-      </div>  
-    </div> 
-  </div>  
-</div> 
+        </div>  
+      </div> 
+    </div>  
+  </div> 
 
   <script>
 
