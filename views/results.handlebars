@@ -61,7 +61,7 @@
                       </div>
 
                       <div class="row flow-text exoFont form-group form-inline" id="searchlocation"><span id="error"></span>
-                          <input type="text" class="form-control" placeholder="Search..." id="location">
+                          <input type="text" class="form-control" placeholder="Search by Zip" id="location">
                           <button id="searchlocation" class="btn btn-primary">Search</button>
                       </div>  
 
@@ -97,11 +97,13 @@ if ('geolocation' in navigator) {
         let campgroundName = camp.$.facilityName;
         let campgroundLat = camp.$.latitude;
         let campgroundLon = camp.$.longitude;
+        let campgroundType = camp.$.contractType;
         let campgroundZ = 3;
         campgroundTemp.push(campgroundName)
         campgroundTemp.push(campgroundLat)
         campgroundTemp.push(campgroundLon)
         campgroundTemp.push(campgroundZ);
+        campgroundTemp.push(campgroundType);
         campgroundArray.push(campgroundTemp);
       }
       setMarkers(map, campgroundArray);
@@ -150,11 +152,12 @@ if ('geolocation' in navigator) {
       var location = $("#location").val();
       if (location != '') {
         $.ajax ({
-          url: 'http://api.openweathermap.org/data/2.5/weather?q=' + location + "&units=imperial" + "&APPID=560a44dd3a91049359b3ff212530bb7f",
+          url: 'http://api.openweathermap.org/data/2.5/weather?zip=' + location + "&units=imperial" + "&APPID=560a44dd3a91049359b3ff212530bb7f",
           type: "GET",
           datatype: "jsonp",
           success: function(data) {
-            console.log(data);
+            console.log(data.coord.lat);
+            newMarkerAndCenter(map, data.coord.lat, data.coord.lon);
           }
         });
       } else {
