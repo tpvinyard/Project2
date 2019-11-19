@@ -1,33 +1,38 @@
 
 <!--add hamburger menu for scrollspy here-->
-<div id="index-banner" class="parallax-container">
-
-  <div class="dropdown">
-    <i class="dropdown-trigger fa fa-bars fa-4x burger-menu" data-target='dropdown'></i>  
-    <ul class="dropdown-content" id="dropdown">
-      <li class="nav-item active">
-        <a class="nav-link" href="/">Home <span class="sr-only">(current)</span></a>
-      </li>
+<div id="parallax index-banner" class="home parallax-container">
+   
+  <ul id="slide-out" class="black sidenav white-text exoFont flow-text">
+    <li><div class="user-view">
+      <div class="background">
+      </div>
+       <div class="nav-item active">
+        <a class="nav-link sidenav-close" href="/">Home <span class="sr-only">(current)</span></a>
+      </div>
       {{#if loggedIn}}
-      <li class="nav-item">
-        <a class="nav-link" href="/user">Profile</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="/logout">Log Out</a>
-      </li>
+      <div class= "nav-item">
+      <a href="/user" class="sidenav-close nav-link white-text exoFont flow-text">Your Profile</a>
+      </div>
+      <br>
+      <a href="/logout" class="sidenav-close nav-link white-text exoFont flow-text">Log Out</a>
       {{else}}
-      <li class="nav-item">
-        <a class="nav-link" href="/login">Log In</a>
-      </li>
+      <a href="/login" class="sidenav-close nav-link white-text exoFont flow-text">Log In</a>
       {{/if}}
-    </ul>
-  </div>
+    </div></li>    
+    <li><div class="divider white-text exoFont flow-text"></div></li>
+
+    <li><a href="#top" class="sidenav-close"><i class="material-icons white-text exoFont">Home</a></i></li>
+    <li><a href="#events" class="sidenav-close"><i class="subheader white-text exoFont flow-text">Events</a></i></li>
+    <li><a href="#about" class="sidenav-close"><i class="subheader white-text exoFont flow-text">About</a></i></li>
+    <li><a href="#globe" class="sidenav-close"><i class="subheader white-text exoFont flow-text">Globe</a></i></li>
+    <li><a href="#footer" class="sidenav-close"><i class="subheader white-text exoFont flow-text">Team</a></i></li>
+  </ul>
+  <a href="#" data-target="slide-out" class="sidenav-trigger"><i class="fa fa-bars fa-4x burger-menu material-icons white-text exoFont flow-text"></i></a>
 
   <div class="section section1 no-pad-bot">
     <div class="container">  
   <!-- ... -->
-    <br><br>
-      <h1 class="center white-text text-lighten-2">Star Scout</h1>
+      <h1 class="center white-text">Star Scout</h1>
         <div class="row center">
           <h5 class="col s12 light flow-text exoFont">Discover your next trip by chasing the stars</h5>
         </div>
@@ -75,10 +80,9 @@
         </div>    
       </div>
     </div>
-  <div class="parallax"><img src="/images/background1.jpg" alt="Unsplashed background img 1"></div>
 </div>
 
-  <div class="black valign-wrapper">
+  <div id= "events" class="black valign-wrapper section scrollspy">
     <div class="section no-pad-bot">
     </div>
   </div>
@@ -113,12 +117,12 @@
           </div>
         </div>
       </div>
-      <div class="parallax"><img src="/images/background2.jpg" alt="Unsplashed background img 2"></div>
+      <div class="parallax"><img src="/images/background2.jpg"></div>
     </div>
   </div>
 
-  <div class="section black">
-    <div class="section white-text row container">
+  <div id= "about" class="section black section scrollspy">
+    <div class="white-text row container">
       <div class="col s12 center flow-text exoFont">
         <h4>About</h4>
         <p class="left-align ">Star Scout is a site created for the purpose of discovering upcoming astrological events, where the least light pollution is, and the best local camping areas for viewing. You can view our general calendar of events or select specific events from the home page carousel. You won't forget your plans because once you've chosen a campsite you can save the event to your google calendar!</p>
@@ -126,15 +130,15 @@
     </div>
   </div>
 
-  <div class="parallax-container valign-wrapper">
-    <div class="section no-pad-bot container">
+  <div id= "globe" class="parallax-container valign-wrapper section scrollspy">
+    <div class="no-pad-bot container">
           <div id="cesiumContainer" class="fullSize"></div>
           <div id="toolbar"></div>
-      <div class="parallax"><img src="/images/background3.jpg" alt="Unsplashed background img 2"></div>
+      <div class="parallax"><img src="/images/background3.jpg"></div>
     </div>
   </div>
 
-  <footer class="page-footer blue darken-4">
+  <footer id= "footer" class="page-footer blue darken-4 section scrollspy">
     <div class="container">
       <div class="row">
         <div class="col l6 s12">
@@ -190,6 +194,16 @@
         url : '../images/Cesium_Logo_overlay.png',
         rectangle : Cesium.Rectangle.fromDegrees(-75.0, 28.0, -67.0, 29.75)
     }));
+
+    document.addEventListener('DOMContentLoaded', function() {
+    var elems = document.querySelectorAll('.sidenav');
+    var instances = M.Sidenav.init(elems, options);
+  });
+
+  // Initialize collapsible (uncomment the lines below if you use the dropdown variation)
+  // var collapsibleElem = document.querySelector('.collapsible');
+  // var collapsibleInstance = M.Collapsible.init(collapsibleElem, options);
+
 
 
   </script>
