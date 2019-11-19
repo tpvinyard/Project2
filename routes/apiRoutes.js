@@ -136,4 +136,30 @@ module.exports = function(app) {
       .then(data => parseString(data,function(err, res) {response.json(res.resultset.result)}))
     // console.log($(campground_response).serialize());
   })
+
+  //TODO : RENAME ALL
+  app.get('api/spaceImages', async (response) => {
+    const space_url = 'http://hubblesite.org/api/v3/images';
+    const space_response = await fetch(space_url);
+    const space_data = await space_response.json();
+    console.log("<><><><><><>?<><><>");
+    var imageUrls = [];
+    const image_url = 'http://hubblesite.org/api/v3/image/'
+    var counter = 0;
+    for (i in space_data) {
+      const new_image_response = await fetch(image_url + space_data[i].id);
+      const new_image_data = await new_image_response.json();
+      imageUrls[i] = new_image_data.image_files[0].file_url.substr(2); 
+      counter++;
+      if (counter == 5){
+        break;
+      }    
+    }
+
+    res.json(imageUrls);
+
+
+    console.log("<><><><><><>?<><><>");
+  });
+
 };
