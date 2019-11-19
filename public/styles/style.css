@@ -24,11 +24,14 @@
   font-family: "Gill Sans", "Gill Sans MT", "Myriad Pro", "DejaVu Sans Condensed", Helvetica, Arial, "sans-serif";
 }
 
-body {
-  background-image: url("/images/moonrise.jpg");
-  background-color: #2e2e2e;
+.home {
+  background-image: url('../images/background1.jpg');
+  height: 100vh;
+  background-attachment: fixed;
+  background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
+  background-color: #2e2e2e;
  }
 
 #welcomeback {
@@ -76,7 +79,8 @@ body {
 	margin-right: auto;
 	margin-bottom: auto;
 	margin-top: 1px;
-	cursor: pointer;
+  cursor: pointer;
+  z-index: 2000; 
 }
 
 .dropdown {
@@ -206,6 +210,7 @@ footer.page-footer {
 }
 
 .section1 {
+  margin-top: -50px;
   min-height: 1000px;
 }
 
@@ -216,4 +221,9 @@ footer.page-footer {
 .slider .slides li img {
   background-size:100% auto;
   background-repeat: no-repeat;
+}
+.sticky {
+  position: fixed;
+  top: 0;
+  width: 100%;
 }

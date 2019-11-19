@@ -1,53 +1,53 @@
 <div style = "background-image: url('/images/testing.jpg'); height: 100%;">      
 
 <!--add hamburger menu for scrollspy here-->
-  <div class="dropdown white-text">
-    <i class="dropdown-trigger fa fa-bars fa-4x burger-menu" data-target='dropdown'></i>  
-    <ul class="dropdown-content" id="dropdown">
-      <li class="nav-item active">
+  <ul id="slide-out" class="black sidenav white-text exoFont flow-text">
+    <li><div class="user-view">
+      <div class="background">
+      </div>
+       <div class="nav-item active">
         <a class="nav-link" href="/">Home <span class="sr-only">(current)</span></a>
-      </li>
+      </div>
       {{#if loggedIn}}
-      <li class="nav-item">
-        <a class="nav-link" href="/user">Profile</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="/logout">Log Out</a>
-      </li>
+      <div class= "nav-item">
+      <a href="/user" class="nav-link white-text exoFont flow-text">Your Profile</a>
+      </div>
+      <br>
+      <a href="/logout" class="nav-link white-text exoFont flow-text">Log Out</a>
       {{else}}
-      <li class="nav-item">
-        <a class="nav-link" href="/login">Log In</a>
-      </li>
+      <a href="/login" class="nav-link white-text exoFont flow-text">Log In</a>
       {{/if}}
-    </ul>
-  </div>
+    </div></li>    
+    <li><div class="divider white-text exoFont flow-text"></div></li>
+  </ul>
+    <a href="#" data-target="slide-out" class="sidenav-trigger"><i class="fa fa-bars fa-4x burger-menu material-icons white-text exoFont flow-text"></i></a>
 
-      <div class="container valign-wrapper">
-        <div class= "sliding-background">
-          <div class="row center">
-            <div class="col s12 flow-text  exoFont">
-              <h4 class="white-text upcoming header">All Upcoming Events!</h4>
-              {{#each index}}
-                <div class="card horizontal">
-                  <div class="card-image">
-                    <img src="{{this.imageUrls}}" width="250px" height="300px"> 
-                  </div>
-                  <div class="card-stacked">
-                    <div class="card-content">
-                      <h5 class="card-title header">{{this.shower_name}} </h5>
-                      <p><strong>Start Date</strong>: {{this.begin_date}}</p>
-                      <p><strong>End Date</strong>: {{this.end_date}}</p>
-                      <p><strong>Max Date</strong>: {{this.max_date}}</p>
-                      <p><strong>Max Rate per Hour</strong>: {{this.max_rate_per_hour}}</p>
-                      <div class="card-action">
-                        <a href="/results/{{this.id}}"> Detailed Info</a>
-                      </div>
-                    </div>
+  <div class="container valign-wrapper">
+    <div class= "sliding-background">
+      <div class="row center">
+        <div class="col s12 flow-text  exoFont">
+          <h4 class="white-text upcoming header">All Upcoming Events!</h4>
+          {{#each index}}
+            <div class="card horizontal">
+              <div class="card-image">
+                <img src="{{this.imageUrls}}" width="250px" height="300px"> 
+              </div>
+              <div class="card-stacked">
+                <div class="card-content">
+                  <h5 class="card-title header">{{this.shower_name}} </h5>
+                  <p><strong>Start Date</strong>: {{this.begin_date}}</p>
+                  <p><strong>End Date</strong>: {{this.end_date}}</p>
+                  <p><strong>Max Date</strong>: {{this.max_date}}</p>
+                  <p><strong>Max Rate per Hour</strong>: {{this.max_rate_per_hour}}</p>
+                  <div class="card-action">
+                    <a href="/results/{{this.id}}"> Detailed Info</a>
                   </div>
                 </div>
-              {{/each}}
+              </div>
             </div>
-          </div>
+          {{/each}}
         </div>
       </div>
     </div>
+  </div>
+</div>
