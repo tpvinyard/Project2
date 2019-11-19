@@ -8,7 +8,7 @@ function initializeMap() {
 var mapOptions = {
     zoom: 6,
     maxZoom: 17,
-    center: new google.maps.LatLng(39.8283, 268.5795),
+    center: new google.maps.LatLng(30.2672, 277.7431),
     scaleControl: true,
     mapTypeId: google.maps.MapTypeId.ROADMAP
 };
@@ -312,23 +312,59 @@ map.overlayMapTypes.insertAt(0, overlayfull);
 
 }
 
+async function newMarkerAndCenter(map, lat, lon) {
+    try {
+        document.getElementById('latlon').textContent = `latitude: ${lat}, longitude: ${lon}`;
+        const api_url_camp = `/campgrounds/${lat},${lon}`
+        const response_camp = await fetch(api_url_camp);
+        const json_camp = await response_camp.json();
+        let campgroundArray = new Array();
+        for (let camp of json_camp) {
+          let campgroundTemp = new Array();
+          let campgroundName = camp.$.facilityName;
+          let campgroundLat = camp.$.latitude;
+          let campgroundLon = camp.$.longitude;
+          let campgroundType = camp.$.contractType;
+          let campgroundZ = 3;
+          campgroundTemp.push(campgroundName)
+          campgroundTemp.push(campgroundLat)
+          campgroundTemp.push(campgroundLon)
+          campgroundTemp.push(campgroundZ);
+          campgroundTemp.push(campgroundType);
+          campgroundArray.push(campgroundTemp);
+        }
+        setMarkers(map, campgroundArray);
+        const api_url = `/weather/${lat},${lon}`;
+        const response = await fetch(api_url);
+        const json = await response.json();
+        var pos = {
+            lat: parseFloat(lat),
+            lng: parseFloat(lon)
+            };
+        
+        infoWindow.setPosition(pos);
+        map.setCenter(pos);
+        forecast = json.weather.daily;
+        weather = json.weather.currently;
+        document.getElementById('summary').textContent = `Weather Summary: ${weather.summary}`;
+        document.getElementById('temp').textContent = `Temperature: ${weather.temperature}`;
+        //document.getElementById('forecast').textContent = forecast.data[0].summary;
+        document.getElementById('sunrise').textContent = `Sunrise: ${forecast.data[0].sunriseTime}`;
+        document.getElementById('sunset').textContent = `Sunset: ${forecast.data[0].sunsetTime}`;
+        //document.getElementById('moonphase').textContent = forecast.data[0].moonPhase;
+  
+      } catch (error) {
+        console.log(error);
+      }
+    
+}
 
+function infoCallback(infoWindow, marker) {
+    return function() { infoWindow.open(map, marker); };
+ }
   
 function setMarkers(map, array) {
-    // Adds markers to the map.
-    // var beaches = [
-    //     ['Bondi Beach', 30.890542, -97.274856, 4],
-    //     ['Coogee Beach', 30.923036, -97.259052, 5],
-    //     ['Cronulla Beach', 30.028249, -97.157507, 3],
-    //     ['Manly Beach', 30.80010128657071, -97.28747820854187, 2],
-    //     ['Maroubra Beach', 30.950198, -97.259302, 1]
-    // ];
 
-    // Marker sizes are expressed as a Size of X,Y where the origin of the image
-    // (0,0) is located in the top left of the image.
-  
-    // Origins, anchor positions and coordinates of the marker increase in the X
-    // direction to the right and in the Y direction down.
     var image = {
       url: '/images/wildderness_camping.png',
       // This marker is 20 pixels wide by 32 pixels high.
@@ -338,55 +374,26 @@ function setMarkers(map, array) {
       // The anchor for this image is the base of the flagpole at (0, 32).
       anchor: new google.maps.Point(0, 32)
     };
-    // Shapes define the clickable region of the icon. The type defines an HTML
-    // <area> element 'poly' which traces out a polygon as a series of X,Y points.
-    // The final coordinate closes the poly by connecting to the first coordinate.
-    var shape = {
-      coords: [1, 1, 1, 20, 18, 20, 18, 1],
-      type: 'poly'
-    };
-    for (var i = 0; i < 50; i++) {
-      var beach = array[i];
+
+    for (var i = 0; i < array.length; i++) {
+      var site = array[i];
       var marker = new google.maps.Marker({
-        position: {lat: Number.parseFloat(beach[1]), lng: Number.parseFloat(beach[2])},
+        position: {lat: Number.parseFloat(site[1]), lng: Number.parseFloat(site[2])},
         map: map,
         icon: image,
-        shape: shape,
-        title: beach[0],
-        zIndex: beach[3]
+        title: site[0],
+        type: site[4]
       });
-    }
-
-    var contentString = `<div style="color: black;">Title: ${marker.title}</div>`
-    // '<div id="content">'+
-    // '<div id="siteNotice">'+
-    // '</div>'+
-    // '<h1 id="firstHeading" class="firstHeading">Uluru</h1>'+
-    // '<div id="bodyContent">'+
-    // '<p><b>Uluru</b>, also referred to as <b>Ayers Rock</b>, is a large ' +
-    // 'sandstone rock formation in the southern part of the '+
-    // 'Northern Territory, central Australia. It lies 335&#160;km (208&#160;mi) '+
-    // 'south west of the nearest large town, Alice Springs; 450&#160;km '+
-    // '(280&#160;mi) by road. Kata Tjuta and Uluru are the two major '+
-    // 'features of the Uluru - Kata Tjuta National Park. Uluru is '+
-    // 'sacred to the Pitjantjatjara and Yankunytjatjara, the '+
-    // 'Aboriginal people of the area. It has many springs, waterholes, '+
-    // 'rock caves and ancient paintings. Uluru is listed as a World '+
-    // 'Heritage Site.</p>'+
-    // '<p>Attribution: Uluru, <a href="https://en.wikipedia.org/w/index.php?title=Uluru&oldid=297882194">'+
-    // 'https://en.wikipedia.org/w/index.php?title=Uluru</a> '+
-    // '(last visited June 22, 2009).</p>'+
-    // '</div>'+
-    // '</div>';
-
-    var infowindow = new google.maps.InfoWindow({
+      var contentString = `<div style="color: black;">Title: ${marker.title}</div>`+
+      `<div style="color: black;">Type: ${marker.type}</div>`+
+      `<div style="color: black;">Position: ${marker.position}</div>`
+      var infoWindow = new google.maps.InfoWindow({
         content: contentString,
         maxWidth: 200
-    });
-
-    marker.addListener('click', function() {
-        infowindow.open(map, marker);
-    });
+      });
+      google.maps.event.addListener(marker,
+        'click', infoCallback(infoWindow, marker));
+    }
 }
 
 function createOpacityControl(map) {
