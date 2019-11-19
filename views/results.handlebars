@@ -56,9 +56,12 @@
                         <p id='sunrise'></p>
                         <p id='sunset'></p>
                     </div>
-                    <div class="card-action">
-                        <button id="geolocate">Check here</button>
-                    </div>    
+
+                    <div class="row form-group form-inline" id="searchlocation"><span id="error"></span>
+                        <input type="text" class="form-control" placeholder="Search..." id="location">
+                        <button id="searchlocation" class="btn btn-primary">Search</button>
+                    </div>  
+
                   </div>
                 </div>
               </div>
@@ -75,13 +78,12 @@
 // Geo Locate
 let lat, lon;
 if ('geolocation' in navigator) {
-  console.log('geolocation available');
+  // console.log('geolocation available');
   navigator.geolocation.getCurrentPosition(async position => {
     let lat, lon, weather, forecast;
     try {
       lat = position.coords.latitude;
       lon = position.coords.longitude;
-      //document.getElementById('latitude').textContent = lat.toFixed(2);
       document.getElementById('latlon').textContent = `latitude: ${lat}, longitude: ${lon}`;
       const api_url_camp = `/campgrounds/${lat},${lon}`
       const response_camp = await fetch(api_url_camp);
@@ -132,26 +134,31 @@ if ('geolocation' in navigator) {
   console.log('geolocation not available');
 }
 </script>
+
 <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
 <script src="/js/materialize.js"></script>
 <script src="/js/init.js"></script>
 <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-{{!-- <script>
-    $('#geolocate').click(function() {
-    var location = $("#location").val();
-    if (location != '') {
-      .ajax ({
-        url: 'http://api.openweathermap.org/data/2.5/weather?q=' + location + '&units=imperial' + '560a44dd3a91049359b3ff212530bb7f',
-        type: "GET",
-        datatype: "jsonp",
-        success: function(data) {
-          console.log("weather" + data);
-        }
-      });
+<script src="/js/index.js"></script>
 
-    } else {
-      throw(err);
-    }
-  })
-</script> --}}
+<script>
+ $(document).ready(function(){
+      $('#searchlocation').click(function() {
+      var location = $("#location").val();
+      if (location != '') {
+        $.ajax ({
+          url: 'http://api.openweathermap.org/data/2.5/weather?q=' + location + "&units=imperial" + "&APPID=560a44dd3a91049359b3ff212530bb7f",
+          type: "GET",
+          datatype: "jsonp",
+          success: function(data) {
+            console.log(data);
+          }
+        });
+      } else {
+        //{{!-- $("#error").html("Derp, field cannot be empty. "); --}}
+        console.log("must type something");
+      }
+    });
+  });
+</script>
 
