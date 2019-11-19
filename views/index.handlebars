@@ -3,23 +3,26 @@
 <div id="parallax index-banner" class="home parallax-container">
    
   <ul id="slide-out" class="black sidenav white-text exoFont flow-text">
-    <li><div class="user-view">
-      <div class="background">
-      </div>
-       <div class="nav-item active">
+    <li>
+      <div class="user-view">
+        <div class="background"></div>
+      <div class="nav-item active">
         <a class="nav-link sidenav-close" href="/">Home <span class="sr-only">(current)</span></a>
       </div>
-      {{#if loggedIn}}
-      <div class= "nav-item">
-      <a href="/user" class="sidenav-close nav-link white-text exoFont flow-text">Your Profile</a>
+        {{#if loggedIn}}
+        <div class= "nav-item">
+          <a href="/user" class="sidenav-close nav-link white-text exoFont flow-text">Your Profile</a>
+        </div>
+        <br>
+        <a href="/logout" class="sidenav-close nav-link white-text exoFont flow-text">Log Out</a>
+        {{else}}
+        <a href="/login" class="sidenav-close nav-link white-text exoFont flow-text">Log In</a>
+        {{/if}}
       </div>
-      <br>
-      <a href="/logout" class="sidenav-close nav-link white-text exoFont flow-text">Log Out</a>
-      {{else}}
-      <a href="/login" class="sidenav-close nav-link white-text exoFont flow-text">Log In</a>
-      {{/if}}
-    </div></li>    
-    <li><div class="divider white-text exoFont flow-text"></div></li>
+    </li>    
+    <li>
+      <div class="divider white-text exoFont flow-text"></div>
+    </li>
 
     <li><a href="#top" class="sidenav-close"><i class="material-icons white-text exoFont">Home</a></i></li>
     <li><a href="#events" class="sidenav-close"><i class="subheader white-text exoFont flow-text">Events</a></i></li>
@@ -27,11 +30,10 @@
     <li><a href="#globe" class="sidenav-close"><i class="subheader white-text exoFont flow-text">Globe</a></i></li>
     <li><a href="#footer" class="sidenav-close"><i class="subheader white-text exoFont flow-text">Team</a></i></li>
   </ul>
-  <a href="#" data-target="slide-out" class="sidenav-trigger"><i class="fa fa-bars fa-4x burger-menu material-icons white-text exoFont flow-text"></i></a>
+    <a href="#" data-target="slide-out" class="sidenav-trigger"><i class="fa fa-bars fa-4x burger-menu material-icons white-text exoFont flow-text"></i></a>
 
   <div class="section section1 no-pad-bot">
     <div class="container">  
-  <!-- ... -->
       <h1 class="center white-text">Star Scout</h1>
         <div class="row center">
           <h5 class="col s12 light flow-text exoFont">Discover your next trip by chasing the stars</h5>
@@ -47,16 +49,16 @@
               <h5>Eclipses</h5>
             </div>
             <div class= "responsive-img">
-            <img src="/images/eclipse.jpg" >
+              <img src="/images/eclipse.jpg" >
             </div>
           </a>
           
           <a class="carousel-item carouselPic" href = "https://www.wolframalpha.com/examples/science-and-technology/space-and-astronomy/astronomical-events/sunrise-and-sunset/">
-              <div class="carousel-content white-text flow-text exoFont">
-                <h5>Sunrise/Sunsets</h5>
-              </div>
+            <div class="carousel-content white-text flow-text exoFont">
+              <h5>Sunrise/Sunsets</h5>
+            </div>
             <div class= "responsive-img">
-            <img src="/images/sunset.jpg">
+              <img src="/images/sunset.jpg">
             </div>
           </a>
             
@@ -65,7 +67,7 @@
               <h5>Lunar Phases</h5>
             </div>
             <div class= "responsive-img">
-            <img src="/images/FullMoon.jpg">
+              <img src="/images/FullMoon.jpg">
             </div>
           </a>
             
@@ -74,17 +76,16 @@
               <h5>Meteor Showers</h5>
             </div>
             <div class= "responsive-img">
-            <img src="/images/meteorshower.jpg">
+              <img src="/images/meteorshower.jpg">
             </div>
           </a>
         </div>    
-      </div>
     </div>
+  </div>
 </div>
 
   <div id= "events" class="black valign-wrapper section scrollspy">
-    <div class="section no-pad-bot">
-    </div>
+    <div class="section no-pad-bot"></div>
   </div>
 
   <div class="parallax-container valign-wrapper">
@@ -132,8 +133,8 @@
 
   <div id= "globe" class="parallax-container valign-wrapper section scrollspy">
     <div class="no-pad-bot container">
-          <div id="cesiumContainer" class="fullSize"></div>
-          <div id="toolbar"></div>
+      <div id="cesiumContainer" class="fullSize"></div>
+      <div id="toolbar"></div>
       <div class="parallax"><img src="/images/background3.jpg"></div>
     </div>
   </div>
@@ -144,29 +145,28 @@
         <div class="col l6 s12">
           <h5 class="white-text flow-text exoFont header">Our Mission</h5>
           <p class="grey-text text-lighten-4 flow-text exoFont">We are a team of UT bootcamp students working on this project like it's our full time job. We hope to showcase our incredible creative and collaborative skills with our coding mastery.</p>
-
-
         </div>
         <div class="col l4 s12">
           <h5 class="white-text flow-text exoFont header">Team Members</h5>
-          <ul>
-            <li><a class="white-text flow-text exoFont" href="#!">Marie Matisans</a></li>
-            <li><a class="white-text flow-text exoFont" href="#!">Sharon Story Smith</a></li>
-            <li><a class="white-text flow-text exoFont" href="#!">Santiago Tolosa-Zegarra</a></li>
-            <li><a class="white-text flow-text exoFont" href="#!">Tommy Vinyard</a></li>
-          </ul>
+            <ul>
+              <li><a class="white-text flow-text exoFont" href="#!">Marie Matisans</a></li>
+              <li><a class="white-text flow-text exoFont" href="#!">Sharon Story Smith</a></li>
+              <li><a class="white-text flow-text exoFont" href="#!">Santiago Tolosa-Zegarra</a></li>
+              <li><a class="white-text flow-text exoFont" href="#!">Tommy Vinyard</a></li>
+            </ul>
         </div>
         <div class="col l2 s12">
           <h5 class="white-text flow-text exoFont header">Github Repos</h5>
-          <ul>
-            <li><a class="white-text flow-text exoFont" href="https://github.com/mbolters?tab=repositories">Link 1</a></li>
-            <li><a class="white-text flow-text exoFont" href="https://github.com/sstorysmith?tab=repositories">Link 2</a></li>
-            <li><a class="white-text flow-text exoFont" href="https://github.com/SantiagoTZ8899?tab=repositories">Link 3</a></li>
-            <li><a class="white-text flow-text exoFont" href="https://github.com/tpvinyard?tab=repositories">Link 4</a></li>
-          </ul>
+            <ul>
+              <li><a class="white-text flow-text exoFont" href="https://github.com/mbolters?tab=repositories">Link 1</a></li>
+              <li><a class="white-text flow-text exoFont" href="https://github.com/sstorysmith?tab=repositories">Link 2</a></li>
+              <li><a class="white-text flow-text exoFont" href="https://github.com/SantiagoTZ8899?tab=repositories">Link 3</a></li>
+              <li><a class="white-text flow-text exoFont" href="https://github.com/tpvinyard?tab=repositories">Link 4</a></li>
+            </ul>
         </div>
       </div>
     </div>
+
     <div class="footer-copyright">
       <div class="container flow-text exoFont">
       Made by <a class="white-text" href="https://github.com/SantiagoTZ8899/Project2">The Galaxy Squad</a>
