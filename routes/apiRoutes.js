@@ -11,7 +11,7 @@ const myVars = {
   domain: 'stargazersproject.auth0.com',
   clientID: '4u6Y6XtPah8d7MYPcmEK1MHQ8sCNTNiI',
   clientSecret: '7XWhngqngeJIpT7SxzfVlZUkR7CwsUCR8J6Td1D4Smdng6PeSzL_7QdCpjJiowHb',
-  callbackURL: 'http://localhost:3000/callback'
+  callbackURL: 'https://agile-fjord-46413.herokuapp.com/callback'
 }
 
 module.exports = function(app) {
