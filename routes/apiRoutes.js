@@ -8,9 +8,9 @@ const parseString = require('xml2js').parseString;
 // var DOMParser = require('xmldom');
 
 const myVars = {
-  domain: 'stargazersproject.auth0.com',
-  clientID: '4u6Y6XtPah8d7MYPcmEK1MHQ8sCNTNiI',
-  clientSecret: '7XWhngqngeJIpT7SxzfVlZUkR7CwsUCR8J6Td1D4Smdng6PeSzL_7QdCpjJiowHb',
+  domain: 'broken-voice-2378.auth0.com',
+  clientID: 'OzzVkyQATvDoT_Rf91eSzPC2JYHftMBZ',
+  clientSecret: 'clcWrjBFeNmR07_GPuofJIgVSFt-eDyhrUmkzQ5b2jd2YE1GgBLJBi1tkg7ITVwG',
   callbackURL: 'https://agile-fjord-46413.herokuapp.com/callback'
 }
 
