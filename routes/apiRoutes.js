@@ -24,10 +24,11 @@ module.exports = function(app) {
   app.get('/login', passport.authenticate('auth0', {
     clientID: myVars.clientID,
     domain: myVars.domain,
-    redirectUri: myVars.callbackURL,
-    responseType: 'code',
-    audience: 'https://stargazersproject.auth0.com/api/v2/',
-    scope: 'openid profile'}),
+    callbackURL: myVars.callbackURL,
+    clientSecret: myVars.clientSecret}),
+    // responseType: 'code',
+    // audience: 'https://stargazersproject.auth0.com/api/v2/',
+    // scope: 'openid profile'}),
     function(req, res) {
       res.redirect('/');
     }
