@@ -8,9 +8,9 @@ const parseString = require('xml2js').parseString;
 // var DOMParser = require('xmldom');
 
 const myVars = {
-  domain: 'broken-voice-2378.auth0.com',
-  clientID: 'OzzVkyQATvDoT_Rf91eSzPC2JYHftMBZ',
-  clientSecret: 'clcWrjBFeNmR07_GPuofJIgVSFt-eDyhrUmkzQ5b2jd2YE1GgBLJBi1tkg7ITVwG',
+  domain: 'stargazersproject.auth0.com',
+  clientID: '4u6Y6XtPah8d7MYPcmEK1MHQ8sCNTNiI',
+  clientSecret: '7XWhngqngeJIpT7SxzfVlZUkR7CwsUCR8J6Td1D4Smdng6PeSzL_7QdCpjJiowHb',
   callbackURL: 'https://agile-fjord-46413.herokuapp.com/callback'
 }
 
@@ -24,11 +24,10 @@ module.exports = function(app) {
   app.get('/login', passport.authenticate('auth0', {
     clientID: myVars.clientID,
     domain: myVars.domain,
-    callbackURL: myVars.callbackURL,
-    clientSecret: myVars.clientSecret}),
-    // responseType: 'code',
-    // audience: 'https://stargazersproject.auth0.com/api/v2/',
-    // scope: 'openid profile'}),
+    redirectUri: myVars.callbackURL,
+    responseType: 'code',
+    audience: 'https://stargazersproject.auth0.com/api/v2/',
+    scope: 'openid profile'}),
     function(req, res) {
       res.redirect('/');
     }
